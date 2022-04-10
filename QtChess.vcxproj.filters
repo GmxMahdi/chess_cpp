@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Sources Bibliotheques">
+      <UniqueIdentifier>{68ace6f3-7624-4063-b7e8-0b2c755fbfc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chess">
+      <UniqueIdentifier>{877f62b9-dfdd-4a64-ad27-3e8dc3f97a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chess\Pieces">
+      <UniqueIdentifier>{63c0ba84-4baf-4d07-8e41-aac9c8cc156f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chess\BoardSetup">
+      <UniqueIdentifier>{7b2ecb2c-e229-4970-a93d-2a54cb681067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Chess">
+      <UniqueIdentifier>{7d8fe68a-9fc5-4a0d-9155-a5b7aa8b62ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Chess\Pieces">
+      <UniqueIdentifier>{51eaf088-27f6-4798-bfe1-2b2b852ba313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Chess\BoardSetup">
+      <UniqueIdentifier>{e9a28bf4-9215-475d-84aa-1e67d3b12075}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp">
+      <Filter>Sources Bibliotheques</Filter>
+    </ClCompile>
+    <ClCompile Include="bibliotheque_cours\verification_allocation.cpp">
+      <Filter>Sources Bibliotheques</Filter>
+    </ClCompile>
+    <ClCompile Include="googletest\src\gtest-all.cc">
+      <Filter>Sources Bibliotheques</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCalc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessGame.cpp">
+      <Filter>Source Files\Chess</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Bishop.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardSetupClassic.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardSetupRandom.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files\Chess</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Chess</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerIcon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ChessWindow.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ChessUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PlayerIcon.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bishop.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="ChessGame.h">
+      <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupRandom.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupClassic.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetup.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resource.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+</Project>
