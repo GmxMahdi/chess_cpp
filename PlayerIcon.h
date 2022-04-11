@@ -12,6 +12,8 @@
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
+// This class is literally used just 
+// to display a black or white square.
 class PlayerIcon : public QWidget {
 	Q_OBJECT
 public:

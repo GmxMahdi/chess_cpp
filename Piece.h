@@ -26,7 +26,10 @@ public:
 
 
 protected:
+
+	// Char representation of a piece
 	virtual char  getSymbol() const = 0;
+
 	bool hasSameColorOfOtherPiece(Piece* piece);
 	bool canStepOnPiece(Piece* piece);
 	bool addMoveIfPossible(Piece* board[8][8], Position move);

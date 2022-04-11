@@ -32,8 +32,10 @@ void Bishop::calculatePossibleMoves(Piece* board[8][8])
 		int nextRow = row;
 		int nextCol = col;
 		while (++nextRow < 8 && ++nextCol < 8)
+			// If cell is empty or can be captured
 			if (!addMoveIfPossible(board, { nextRow, nextCol }))
 				break;
+			// If cell is empty, we can continue going in that direction
 			else if (board[nextRow][nextCol] != nullptr)
 				break;
 	}

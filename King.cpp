@@ -24,14 +24,14 @@ void King::calculatePossibleMoves(Piece* board[8][8]) {
 	int row = _position.getRow();
 	int col = _position.getCol();
 
-	addMoveIfPossible(board, { row + 1, col		});
-	addMoveIfPossible(board, { row + 1, col + 1 });
-	addMoveIfPossible(board, { row + 1, col - 1 });
+	addMoveIfPossible(board, { row + 1, col		}); // Bottom
+	addMoveIfPossible(board, { row + 1, col + 1 }); // Bottom right
+	addMoveIfPossible(board, { row + 1, col - 1 }); // Bottom left
 
-	addMoveIfPossible(board, { row - 1, col		});
-	addMoveIfPossible(board, { row - 1, col + 1 });
-	addMoveIfPossible(board, { row - 1, col - 1 });
+	addMoveIfPossible(board, { row - 1, col		}); // Top
+	addMoveIfPossible(board, { row - 1, col + 1 }); // Top right
+	addMoveIfPossible(board, { row - 1, col - 1 }); // Top left
 
-	addMoveIfPossible(board, { row    , col + 1 });
-	addMoveIfPossible(board, { row    , col - 1 });
+	addMoveIfPossible(board, { row    , col + 1 }); // Right
+	addMoveIfPossible(board, { row    , col - 1 }); // Left
 }

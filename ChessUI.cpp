@@ -4,68 +4,100 @@
 
 using namespace std;
 
+// When the mouse moves anywhere and anytime on the board, 
+// this function is called
 void ChessUI::mouseMoveEvent(QMouseEvent* mouseEvent)
 {
 	if (mouseState == MouseState::HOVERING)
 	{
+		// Get the cell position from the mouse's coordinates
 		Position pos = calculateCellPositionFromMouse(mouseEvent->pos());
-		holdingPiece = chess.getPiece(pos);
+
+		// Get the piece the mouse is hovering on.
+		liftedPiece = chess.getPiece(pos);
 	}
 
-	piecePoint = calculateHoveringPiecePositionFromMouse(mouseEvent->pos());
+	// When we will actualy lift the piece, center it on the mouse's cursor
+	liftedPiecePosition = calculateHoveringPiecePositionFromMouse(mouseEvent->pos());
+
+	// Force QObject to be repainted
 	repaint();
 }
 
 void ChessUI::mousePressEvent(QMouseEvent* event)
 {
-
+	// Get the cell position from the mouse's coordinates
 	Position pos = calculateCellPositionFromMouse(event->pos());
 	cout << "(" << pos.getRow() << ", " << pos.getCol() << ")\n";
 
+	// Get the cell position from the mouse's coordinates
 	const Piece* piece = chess.getPiece(pos);
+
+	// If there is a piece in that cell
+	// and if it's the color of the player who's playing
 	if (piece != nullptr &&
 		piece->getColor() == chess.getCurrentPlayerColor())
 	{
-		holdingPiece = piece;
+		liftedPiece = piece;
 		startingPosition = pos;
-		mouseState = MouseState::HOLDING;
+
+		// Player is now holding a piece of his cursor
+		mouseState = MouseState::HOLDING_PIECE;
 	}
 
+	// Force repaint
 	repaint();
 }
 
 void ChessUI::mouseReleaseEvent(QMouseEvent* event)
 {
+	// Get the cell position from the mouse's coordinates
 	Position pos = calculateCellPositionFromMouse(event->pos());
-	if (mouseState == MouseState::HOLDING)
+
+	// If mouse was holding a piece, then he want to make a move
+	if (mouseState == MouseState::HOLDING_PIECE)
 	{
+		// Ending position of the move
 		endingPosition = pos;
+
+		// Attempt to move the piece
 		bool moved = chess.movePiece(startingPosition, endingPosition);
+
+		// If the move was a success
 		if (moved)
 		{
 			cout << "ChessUI: Piece was moved\n";
-			emit gameStateChanged();
+			emit gameStateChanged(); // To make adjutement on the UI (outside of the board)
 		}
 		else
 			cout << "ChessUI: Move is illegal.\n";
 	}
 
+	// Go back to just hovering
 	mouseState = MouseState::HOVERING;
-	holdingPiece = nullptr;
+
+	liftedPiece = nullptr;
+
+	// Force repaint
 	repaint();
 }
 
+
+// Cell width is relative to the QWidget's size
+// (maybe could have stored a value instead)
 int  ChessUI::getCellWidth()
 {
 	return this->rect().width() / 8;
 }
 
+// Get (row, col) from mouse coordinates
 Position ChessUI::calculateCellPositionFromMouse(QPoint point)
 {
 	int width = getCellWidth();
 	return { point.y() / width, point.x() / width };
 }
 
+// Calculate (x, y) to draw the lifted piece on the center of the mouse's cursor
 QPoint ChessUI::calculateHoveringPiecePositionFromMouse(QPoint point)
 {
 
@@ -87,6 +119,9 @@ QPoint ChessUI::calculateHoveringPiecePositionFromMouse(QPoint point)
 }
 
 
+// This function is called when the app thinks it needs
+// the drawing to be refreshed.
+// We can also force it by calling repaint()
 void ChessUI::paintEvent(QPaintEvent* event)
 {
 	drawBoard();
@@ -128,28 +163,30 @@ void ChessUI::drawPieces()
 				painter.drawPixmap(col * width, row * width, width, width, image);
 			}
 		}
-	drawHidePiece();
+	drawHidePiece(); // Hide the one that we are holding (if we're holding one)
 }
 
+// That's the lifted piece
 void ChessUI::drawHoveringPiece()
 {
-	if (mouseState == MouseState::HOLDING)
+	if (mouseState == MouseState::HOLDING_PIECE)
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
-		string fileUrl(":/res/pieces/"s +holdingPiece->getImageName());
+		string fileUrl(":/res/pieces/"s +liftedPiece->getImageName());
 		QPixmap image(fileUrl.c_str());
-		painter.drawPixmap(piecePoint.x(), piecePoint.y(), width, width, image);
+		painter.drawPixmap(liftedPiecePosition.x(), liftedPiecePosition.y(), width, width, image);
 	}
 }
 
+// If we're lifting a piece, hide the one we drew on the board
 void ChessUI::drawHidePiece()
 {
-	if (mouseState == MouseState::HOLDING)
+	if (mouseState == MouseState::HOLDING_PIECE)
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
-		Position pos = holdingPiece->getPosition();
+		Position pos = liftedPiece->getPosition();
 		if ((pos.getRow() + pos.getCol()) % 2 == 1)
 			painter.setBrush(Qt::darkBlue);
 		else
@@ -161,11 +198,11 @@ void ChessUI::drawHidePiece()
 
 void ChessUI::drawAvailableMoves()
 {
-	if (holdingPiece != nullptr)
+	if (liftedPiece != nullptr)
 	{
 		int width = getCellWidth();
 
-		auto moves = holdingPiece->getPossibleMoves();
+		auto moves = liftedPiece->getPossibleMoves();
 		auto painter = QPainter(this);
 		
 		painter.setCompositionMode(QPainter::CompositionMode::CompositionMode_Lighten);
@@ -187,11 +224,12 @@ void ChessUI::drawAvailableMoves()
 
 }
 
+// Add a little bright light to the piece below our mouse's cursor.
 void ChessUI::drawHighlighPiece()
 {
 	if (mouseState == MouseState::HOVERING &&
-		holdingPiece != nullptr &&
-		holdingPiece->getColor() ==  chess.getCurrentPlayerColor())
+		liftedPiece != nullptr &&
+		liftedPiece->getColor() ==  chess.getCurrentPlayerColor())
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
@@ -202,8 +240,8 @@ void ChessUI::drawHighlighPiece()
 		painter.setCompositionMode(QPainter::CompositionMode::CompositionMode_SourceOver);
 
 		painter.drawRect(
-			holdingPiece->getPosition().getCol() * width, 
-			holdingPiece->getPosition().getRow() * width,
+			liftedPiece->getPosition().getCol() * width, 
+			liftedPiece->getPosition().getRow() * width,
 			width, width);
 
 	}

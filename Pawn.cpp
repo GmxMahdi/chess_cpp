@@ -27,34 +27,48 @@ void Pawn::calculatePossibleMoves(Piece* board[8][8]) {
 
 	if (_color == Color::WHITE)
 	{
+		// If pawn is not at the other side of the board
 		if (row != 0)
 		{
+			// If there is no piece in front of the pawn
 			if (board[row - 1][col] == nullptr)
 			{
 				_moves.insert({ row - 1, col });
 
+				// If pawn is that the starting position
 				if (row == 6)
+					// If there is no piece in front-front of the pawn
 					if (board[4][col] == nullptr)
 						_moves.insert({ 4, col });
 			}
 
+			// If pawn isn't completely to the left
 			if (col != 0)
 			{
+				// Get piece on the top left relative to the pawn
 				Piece* piece = board[row - 1][col - 1];
+
+				// If there is a piece and it's the opposite color
 				if (piece != nullptr)
 					if (!hasSameColorOfOtherPiece(board[row - 1][col - 1]))
 						_moves.insert({ row - 1, col - 1 });
 			}
 					
+			// If pawn isn't completely to the right
 			if (col != 7)
 			{
+				// Get piece on the top right relative to the pawn
 				Piece* piece = board[row - 1][col + 1];
+
+				// If there is a piece and it's the opposite color
 				if (piece != nullptr)
 					if (!hasSameColorOfOtherPiece(board[row - 1][col + 1]))
 						_moves.insert({ row - 1, col + 1 });
 			}
 		}
 	}
+
+	// Same rules but with the black pawns
 	else if (_color == Color::BLACK)
 	{
 		if (row != 7)

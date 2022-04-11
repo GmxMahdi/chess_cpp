@@ -25,6 +25,7 @@ private:
 	int _col;
 };
 
+// Hashing for std::unordered_set<Position>
 namespace std {
 	template<> struct hash<Position> {
 		size_t operator() (const Position& position) const noexcept

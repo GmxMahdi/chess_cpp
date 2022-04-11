@@ -35,8 +35,8 @@ signals:
 private:
 	enum class MouseState
 	{
-		HOVERING,
-		HOLDING
+		HOVERING,		// Mouse if just moving around
+		HOLDING_PIECE   // Mouse is lifting a piece + is holding left click
 	};
 	void drawBoard();
 	void drawPieces();
@@ -58,8 +58,11 @@ private:
 	ChessGame chess;
 	MouseState mouseState = MouseState::HOVERING;
 
-	QPoint piecePoint{ 0,0 };
-	const Piece* holdingPiece;
+	QPoint liftedPiecePosition{ 0,0 };
+	const Piece* liftedPiece;
+
+	// Store starting and ending position of the piece
+	// that the user lifted.
 	Position startingPosition;
 	Position endingPosition;
 

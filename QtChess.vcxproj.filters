@@ -82,9 +82,6 @@
     <ClCompile Include="BoardSetupRandom.cpp">
       <Filter>Source Files\Chess\BoardSetup</Filter>
     </ClCompile>
-    <ClCompile Include="Position.cpp">
-      <Filter>Source Files\Chess</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Chess</Filter>
     </ClCompile>
