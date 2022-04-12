@@ -9,8 +9,8 @@ unique_ptr<Piece> King::clone() const
 
 std::string King::getImageName() const
 {
-	auto colorName = (_color == Color::WHITE ? "white"s : "black"s);
-	return "king_" + colorName + ".png";
+	auto colorName = (_color == Color::WHITE ? "lt"s : "dt"s);
+	return "Chess_k" + colorName + "60.png";
 }
 
 char King::getSymbol() const

@@ -9,8 +9,8 @@ unique_ptr<Piece> Bishop::clone() const
 
 std::string Bishop::getImageName() const
 {
-	auto colorName = (_color == Color::WHITE ? "white"s : "black"s);
-	return "bishop_" + colorName + ".png";
+	auto colorName = (_color == Color::WHITE ? "lt"s : "dt"s);
+	return "Chess_b" + colorName + "60.png";
 }
 
 char Bishop::getSymbol() const

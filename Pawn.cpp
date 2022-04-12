@@ -9,8 +9,8 @@ unique_ptr<Piece> Pawn::clone() const
 
 std::string Pawn::getImageName() const
 {
-	auto colorName = (_color == Color::WHITE ? "white"s : "black"s);
-	return "pawn_" + colorName + ".png";
+	auto colorName = (_color == Color::WHITE ? "lt"s : "dt"s);
+	return "Chess_p" + colorName + "60.png";
 }
 
 char Pawn::getSymbol() const
