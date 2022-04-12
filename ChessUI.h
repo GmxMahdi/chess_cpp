@@ -39,6 +39,7 @@ private:
 		HOLDING_PIECE   // Mouse is lifting a piece + is holding left click
 	};
 	void drawBoard();
+	void drawCellInDanger();
 	void drawPieces();
 	void drawHoveringPiece();
 	void drawHidePiece();

@@ -122,12 +122,20 @@ bool ChessGame::movePiece(Position source, Position destination)
 	// Go through each piece and calculate all of their legal moves
 	setValidMovesOfAllPieces();
 
+	// See if the game is over or not
+	updateGameState();
+
 	return true;
 }
 
 Color ChessGame::getCurrentPlayerColor()
 {
 	return _playerPlaying->_color;
+}
+
+ChessGame::State ChessGame::getGameState()
+{
+	return _state;
 }
 
 void ChessGame::applyMove(Position source, Position destination)
@@ -210,6 +218,57 @@ void ChessGame::setValidMovesOfPiece(Piece& piece)
 		if (!moveKeepsKingSafe(piece._position, move))
 			piece._moves.erase(move);
 	}
+}
+
+void ChessGame::updateGameState()
+{
+	bool isCheck = isKingInCheck();
+	bool hasNoMoves = hasNoLegalMoves();
+
+	if (isCheck)
+	{
+		if (hasNoMoves)
+			_state = State::CHECKMATE;
+		else
+			_state = State::CHECK;
+	}
+	else if (hasNoMoves)
+		_state = State::DRAW;
+	else
+		_state = State::PLAYING;
+}
+
+bool ChessGame::hasNoLegalMoves()
+{
+	for (auto& piece : _playerPlaying->_pieces)
+		if (piece->_moves.size() != 0)
+			return false;
+	return true;
+}
+
+bool ChessGame::isKingInCheck()
+{
+	// Create copy of the board
+	ChessGame gameCopy = *this;
+
+	// Go through each piece of the player who's waiting
+	for (auto& piece : gameCopy._playerWaiting->_pieces)
+	{
+		// Calculate the possible moves of that piece
+		piece->calculatePossibleMoves(gameCopy._board);
+
+		// If the piece can capture the king, the king is in check
+		if (piece->_moves.find(gameCopy._playerPlaying->_king->_position) != piece->_moves.end())
+			return true;
+	}
+
+	// If none of the pieces can capture the king, then the king is safe.
+	return false;
+}
+
+Position ChessGame::getCurrentPlayerKingPosition()
+{
+	return _playerPlaying->_king->getPosition();
 }
 
 // Debugging inside console

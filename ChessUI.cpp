@@ -66,6 +66,9 @@ void ChessUI::mouseReleaseEvent(QMouseEvent* event)
 		// If the move was a success
 		if (moved)
 		{
+			if (chess.getGameState() == ChessGame::State::CHECK)
+				cout << "CHECK!!!\n";
+
 			cout << "ChessUI: Piece was moved\n";
 			emit gameStateChanged(); // To make adjutement on the UI (outside of the board)
 		}
@@ -125,6 +128,7 @@ QPoint ChessUI::calculateHoveringPiecePositionFromMouse(QPoint point)
 void ChessUI::paintEvent(QPaintEvent* event)
 {
 	drawBoard();
+	drawCellInDanger();
 	drawPieces();
 	drawHighlighPiece();
 	drawAvailableMoves();
@@ -140,13 +144,30 @@ void ChessUI::drawBoard()
 		for (int col = 0; col < 8; ++col)
 		{
 			if ((row + col) % 2 == 1)
-				painter.setBrush(Qt::darkBlue);
+				painter.setBrush(Qt::blue);
 			else
 				painter.setBrush(Qt::gray);
 			painter.drawRect(row * width, col * width, width, width);
 		}
 }
 
+void ChessUI::drawCellInDanger()
+{
+	if (chess.getGameState() == ChessGame::State::CHECK)
+	{
+		int width = getCellWidth();
+		auto painter = QPainter(this);
+		painter.setBrush(Qt::red);
+
+		Position dangerPos = chess.getCurrentPlayerKingPosition();
+		painter.drawRect(
+			dangerPos.getCol() * width,
+			dangerPos.getRow() * width,
+			width, 
+			width);
+	}
+
+}
 void ChessUI::drawPieces()
 {
 	int width = getCellWidth();
