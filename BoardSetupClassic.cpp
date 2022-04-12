@@ -9,11 +9,19 @@ list<unique_ptr<Piece>> BoardSetupClassic::getPieceSet() {
 
 
 	// Pawns
-	for (int i = 0; i < 8; ++i)
-	{
-		pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, i })));
-		pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, i })));
-	}
+	//for (int i = 0; i < 8; ++i)
+	//{
+	//	pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, i })));
+	//	pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, i })));
+	//}
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, 4 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, 5 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, 0 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::WHITE, { 6, 7 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, 2 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, 3 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, 0 })));
+	pieces.push_back(make_unique<Pawn>(Pawn(Color::BLACK, { 1, 7 })));
 
 	// Kings
 	pieces.push_back(make_unique<King>(King(Color::WHITE, { 7, 4 })));
@@ -24,6 +32,13 @@ list<unique_ptr<Piece>> BoardSetupClassic::getPieceSet() {
 	pieces.push_back(make_unique<Bishop>(Bishop(Color::WHITE, { 7, 5 })));
 	pieces.push_back(make_unique<Bishop>(Bishop(Color::BLACK, { 0, 2 })));
 	pieces.push_back(make_unique<Bishop>(Bishop(Color::BLACK, { 0, 5 })));
+
+
+	// Rooks
+	pieces.push_back(make_unique<Rook>(Rook(Color::WHITE, { 7, 0 })));
+	pieces.push_back(make_unique<Rook>(Rook(Color::WHITE, { 7, 7 })));
+	pieces.push_back(make_unique<Rook>(Rook(Color::BLACK, { 0, 0 })));
+	pieces.push_back(make_unique<Rook>(Rook(Color::BLACK, { 0, 7 })));
 
 	return pieces;
 }

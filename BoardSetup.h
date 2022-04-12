@@ -4,6 +4,7 @@
 #include "Pawn.h"
 #include "King.h"
 #include "Bishop.h"
+#include "Rook.h"
 #include <memory>
 #include <list>
 class BoardSetup

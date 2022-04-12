@@ -45,6 +45,7 @@ private:
 	void drawHidePiece();
 	void drawAvailableMoves();
 	void drawHighlighPiece();
+	void drawGameOverCross();
 
 	int			getCellWidth();
 	Position	calculateCellPositionFromMouse(QPoint point);

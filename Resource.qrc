@@ -12,5 +12,6 @@
         <file>pieces/Chess_qlt60.png</file>
         <file>pieces/Chess_rdt60.png</file>
         <file>pieces/Chess_rlt60.png</file>
+        <file>pieces/dead.png</file>
     </qresource>
 </RCC>

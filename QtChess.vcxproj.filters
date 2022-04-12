@@ -88,6 +88,9 @@
     <ClCompile Include="PlayerIcon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rook.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="Rook.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

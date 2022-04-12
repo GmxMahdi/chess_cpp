@@ -133,6 +133,7 @@ void ChessUI::paintEvent(QPaintEvent* event)
 	drawHighlighPiece();
 	drawAvailableMoves();
 	drawHoveringPiece();
+	drawGameOverCross();
 }
 
 void ChessUI::drawBoard()
@@ -166,7 +167,6 @@ void ChessUI::drawCellInDanger()
 			width, 
 			width);
 	}
-
 }
 void ChessUI::drawPieces()
 {
@@ -265,5 +265,24 @@ void ChessUI::drawHighlighPiece()
 			liftedPiece->getPosition().getRow() * width,
 			width, width);
 
+	}
+}
+
+void ChessUI::drawGameOverCross()
+{
+	if (chess.getGameState() == ChessGame::State::CHECKMATE)
+	{
+		int width = getCellWidth();
+		auto painter = QPainter(this);
+		painter.setBrush(Qt::red);
+
+		Position dangerPos = chess.getCurrentPlayerKingPosition();
+		QPixmap deadImage(":/res/pieces/dead.png");
+		painter.drawPixmap(
+			dangerPos.getCol() * width,
+			dangerPos.getRow() * width,
+			width,
+			width,
+			deadImage);
 	}
 }
