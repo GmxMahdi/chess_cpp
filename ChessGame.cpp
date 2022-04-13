@@ -62,23 +62,9 @@ void ChessGame::setupBoard(BoardSetup* setup)
 		_board[piece->_position.getRow()][piece->_position.getCol()] = piece.get();
 
 		if (piece->_color == Color::WHITE)
-		{
-			// If the piece is a king, set _king
-			if (dynamic_cast<King*>(piece.get()) != nullptr)
-				_playerWhite._king = piece.get();
-
-			// Give the piece to the white player
-			_playerWhite._pieces.push_back(move(piece));
-		}
+			_playerWhite.addPiece(piece);
 		else
-		{
-			// If the piece is a king, set _king
-			if (dynamic_cast<King*>(piece.get()) != nullptr)
-				_playerBlack._king = piece.get();
-
-			// Give the piece to the black player
-			_playerBlack._pieces.push_back(move(piece));
-		}
+			_playerBlack.addPiece(piece);
 	}
 
 	// Go through each piece and calculate all of their legal moves

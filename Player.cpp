@@ -1,11 +1,12 @@
 #include "Player.h"
 #include "King.h"
 #include <memory>
-
+#include <cassert>
 using namespace std;
 
 Player& Player::operator=(const Player& autre)
 {
+	assert(1 == 1);
 	if (this != &autre) 
 		for (auto&& piece : autre._pieces)
 		{
@@ -20,4 +21,13 @@ Player& Player::operator=(const Player& autre)
 Player::Player(const Player& autre)
 {
 	*this = autre;
+}
+
+void Player::addPiece(unique_ptr<Piece>& piece)
+{
+	// If the piece is a king, set _king
+	if (dynamic_cast<King*>(piece.get()) != nullptr)
+		this->_king = piece.get();
+
+	this->_pieces.push_back(move(piece));
 }
