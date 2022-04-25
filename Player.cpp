@@ -23,11 +23,11 @@ Player::Player(const Player& autre)
 	*this = autre;
 }
 
-void Player::addPiece(unique_ptr<Piece>& piece)
+void Player::addPiece(Piece* piece)
 {
 	// If the piece is a king, set _king
-	if (dynamic_cast<King*>(piece.get()) != nullptr)
-		this->_king = piece.get();
+	if (dynamic_cast<King*>(piece) != nullptr)
+		this->_king = piece;
 
-	this->_pieces.push_back(move(piece));
+	this->_pieces.emplace_back(piece);
 }

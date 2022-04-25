@@ -54,12 +54,12 @@ void ChessGame::setupBoard(BoardSetup* setup)
 	_playerWaiting = &_playerBlack;
 
 	// Get the pieces from the BoardSetup class
-	list<unique_ptr<Piece>> pieces = setup->getPieceSet();
+	list<Piece*> pieces = setup->getPieceSet();
 
 	for (auto&& piece : pieces)
 	{
 		// Place piece on the board
-		_board[piece->_position.getRow()][piece->_position.getCol()] = piece.get();
+		_board[piece->_position.getRow()][piece->_position.getCol()] = piece;
 
 		if (piece->_color == Color::WHITE)
 			_playerWhite.addPiece(piece);

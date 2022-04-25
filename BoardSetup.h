@@ -10,5 +10,5 @@
 class BoardSetup
 {
 public:
-	virtual std::list<std::unique_ptr<Piece>> getPieceSet() = 0;
+	virtual std::list<Piece*> getPieceSet() = 0;
 };

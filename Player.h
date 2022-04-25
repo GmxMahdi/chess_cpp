@@ -16,7 +16,7 @@ public:
 
 	const std::list<std::unique_ptr<Piece>>& getPieces() const { return _pieces;  }
 
-	void addPiece(std::unique_ptr<Piece>& piece);
+	void addPiece(Piece* piece);
 private:
 	friend class ChessGame;
 
