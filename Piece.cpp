@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace std;
+using namespace GameModel;
 
 string Piece::getAscii() const
 {

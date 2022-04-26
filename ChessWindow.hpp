@@ -20,7 +20,7 @@ public slots:
 	void updateChessGameInformation();
 
 private:
-	ChessUI* _chessUI;
+	GameView::ChessUI* _chessUI;
 	PlayerIcon* _playerIcon;
 	QLabel* _playerLabel;
 };

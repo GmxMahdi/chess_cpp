@@ -21,7 +21,8 @@
 #include "PlayerIcon.h"
 
 using iter::range;
-
+using namespace GameModel;
+using namespace GameView;
 ChessWindow::ChessWindow(QWidget* parent) :
 	QMainWindow(parent)
 {

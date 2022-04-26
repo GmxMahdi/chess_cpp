@@ -22,9 +22,9 @@ public:
 		setFixedSize(ICON_SIZE, ICON_SIZE);
 	};
 
-	void setColor(Color color);
+	void setColor(GameModel::Color color);
 	void paintEvent(QPaintEvent* event) override;
 private:
 	static const int ICON_SIZE = 40;
-	Color _color;
+	GameModel::Color _color;
 };

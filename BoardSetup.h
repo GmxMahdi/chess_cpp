@@ -1,5 +1,4 @@
 #pragma once
-#include "ChessGame.h"
 #include "Piece.h"
 #include "Pawn.h"
 #include "King.h"
@@ -7,8 +6,13 @@
 #include "Rook.h"
 #include <memory>
 #include <list>
-class BoardSetup
+
+
+namespace GameModel
 {
-public:
-	virtual std::list<Piece*> getPieceSet() = 0;
-};
+	class BoardSetup
+	{
+	public:
+		virtual std::list<Piece*> getPieceSet() = 0;
+	};
+}

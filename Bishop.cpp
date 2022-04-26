@@ -1,7 +1,7 @@
 #include "Bishop.h"
 
 using namespace std;
-
+using namespace GameModel;
 unique_ptr<Piece> Bishop::clone() const
 {
 	return make_unique<Bishop>(*this);

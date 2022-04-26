@@ -1,6 +1,7 @@
 #include "Pawn.h"
 #include <iostream>
 using namespace std;
+using namespace GameModel;
 
 unique_ptr<Piece> Pawn::clone() const
 {

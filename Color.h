@@ -1,6 +1,10 @@
 #pragma once
-enum class Color
+
+namespace GameModel
 {
-	BLACK,
-	WHITE
-};
+	enum class Color
+	{
+		BLACK,
+		WHITE
+	};
+}

@@ -1,5 +1,7 @@
 #include "PlayerIcon.h"
 
+using namespace GameModel;
+
 void PlayerIcon::setColor(Color color)
 {
 	_color = color;

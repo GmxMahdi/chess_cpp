@@ -1,6 +1,7 @@
 #include "King.h"
 #include <iostream>
 using namespace std;
+using namespace GameModel;
 
 unique_ptr<Piece> King::clone() const
 {

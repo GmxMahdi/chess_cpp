@@ -3,7 +3,8 @@
 #include <string>
 
 using namespace std;
-
+using namespace GameModel;
+using namespace GameView;
 // When the mouse moves anywhere and anytime on the board, 
 // this function is called
 void ChessUI::mouseMoveEvent(QMouseEvent* mouseEvent)

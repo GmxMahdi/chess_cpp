@@ -1,7 +1,10 @@
 #pragma once
 #include "BoardSetup.h"
 
-class BoardSetupClassic : public BoardSetup
+namespace GameModel
 {
-	std::list<Piece*> getPieceSet() override;
-};
+	class BoardSetupClassic : public BoardSetup
+	{
+		std::list<Piece*> getPieceSet() override;
+	};
+}

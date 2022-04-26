@@ -8,6 +8,7 @@
 #include "BoardSetup.h"
 
 using namespace std;
+using namespace GameModel;
 
 ChessGame& ChessGame::operator=(const ChessGame& autre)
 {

@@ -3,6 +3,7 @@
 #include <memory>
 #include <cassert>
 using namespace std;
+using namespace GameModel;
 
 Player& Player::operator=(const Player& autre)
 {

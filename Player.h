@@ -4,23 +4,27 @@
 #include <vector>
 #include <memory>
 #include <list>
-class Player
+
+namespace GameModel
 {
-public:
-	Player(Color color): _color(color), _pieces(), _king(nullptr) {
-		_pieces.clear();
-	}
+	class Player
+	{
+	public:
+		Player(Color color) : _color(color), _pieces(), _king(nullptr) {
+			_pieces.clear();
+		}
 
-	Player& operator=(const Player& autre);
-	Player(const Player& autre);
+		Player& operator=(const Player& autre);
+		Player(const Player& autre);
 
-	const std::list<std::unique_ptr<Piece>>& getPieces() const { return _pieces;  }
+		const std::list<std::unique_ptr<Piece>>& getPieces() const { return _pieces; }
 
-	void addPiece(Piece* piece);
-private:
-	friend class ChessGame;
+		void addPiece(Piece* piece);
+	private:
+		friend class ChessGame;
 
-	Color								_color;
-	std::list<std::unique_ptr<Piece>>	_pieces; // _pieces.push_back()
-	Piece*								_king;
-};
+		Color								_color;
+		std::list<std::unique_ptr<Piece>>	_pieces; // _pieces.push_back()
+		Piece* _king;
+	};
+}

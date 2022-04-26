@@ -1,6 +1,7 @@
 #include "Rook.h"
 
 using namespace std;
+using namespace GameModel;
 
 unique_ptr<Piece> Rook::clone() const
 {

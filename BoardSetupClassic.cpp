@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace GameModel;
 
 list<Piece*> BoardSetupClassic::getPieceSet() {
 	std::cout << "[Classic Positions]\n";
