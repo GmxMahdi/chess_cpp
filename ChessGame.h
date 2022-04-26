@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Piece.h"
 #include "BoardSetup.h"
+#include "DisposableMove.h"
 
 namespace GameModel
 {

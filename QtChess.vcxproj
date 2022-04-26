@@ -117,6 +117,7 @@
     <ClCompile Include="BoardSetupRandom.cpp" />
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="ChessGame.cpp" />
+    <ClCompile Include="DisposableMove.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="main.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="BoardSetupRandom.h" />
     <ClInclude Include="ChessGame.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="DisposableMove.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Piece.h" />

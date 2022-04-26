@@ -42,6 +42,7 @@ namespace GameModel
 
 
 	private:
+		friend class DisposableMove;
 		friend class ChessGame;
 	protected:
 		virtual void calculatePossibleMoves(Piece* board[8][8]) = 0;

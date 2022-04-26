@@ -171,20 +171,21 @@ void ChessGame::applyMove(Position source, Position destination)
 
 bool ChessGame::moveKeepsKingSafe(Position source, Position destination)
 {
-	// Create copy of the board
-	ChessGame gameCopy = *this;
+	// CECI EST LA CLASSE POUR LE RAII
+	// DESOLER CEST UN PEU PROCHE L'INIT ON A FAIT CA DERNIERE MINUTE MAIS CA MARCHE!!
+	Piece* pieceSrc = _board[source.getRow()][source.getCol()];
+	DisposableMove pieceMove(pieceSrc, _board);
+	pieceMove.movePiece(destination);
 
-	// Make the move
-	gameCopy.applyMove(source, destination);
 
 	// Go through each piece of the player who's waiting
-	for (auto& piece : gameCopy._playerWaiting->_pieces)
+	for (auto& piece : _playerWaiting->_pieces)
 	{
 		// Calculate the possible moves of that piece
-		piece->calculatePossibleMoves(gameCopy._board);
+		piece->calculatePossibleMoves(_board);
 
 		// If the piece can capture the king, it's an illegal move
-		if (piece->_moves.find(gameCopy._playerPlaying->_king->_position) != piece->_moves.end())
+		if (piece->_moves.find(_playerPlaying->_king->_position) != piece->_moves.end())
 			return false;
 	}
 
@@ -201,13 +202,14 @@ void ChessGame::switchTurns()
 
 void ChessGame::setValidMovesOfAllPieces()
 {
+	// Calculate all legal moves for each piece of the one who's playing
+	for (unique_ptr<Piece>& piece : _playerPlaying->_pieces)
+		setValidMovesOfPiece(*piece);
+
 	// The player who's waiting cannot move any pieces
 	for (unique_ptr<Piece>& piece : _playerWaiting->_pieces)
 		piece->_moves.clear();
 
-	// Calculate all legal moves for each piece of the one who's playing
-	for (unique_ptr<Piece>& piece : _playerPlaying->_pieces)
-		setValidMovesOfPiece(*piece);
 }
 
 void ChessGame::setValidMovesOfPiece(Piece& piece)

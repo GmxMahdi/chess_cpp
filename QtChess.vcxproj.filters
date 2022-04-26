@@ -91,6 +91,9 @@
     <ClCompile Include="Rook.cpp">
       <Filter>Source Files\Chess\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="DisposableMove.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="TooManyKingsException.h">
       <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="DisposableMove.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
