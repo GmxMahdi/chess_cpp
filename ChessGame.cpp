@@ -2,10 +2,11 @@
 #include "Pawn.h"
 #include "King.h"
 #include "Bishop.h"
+#include "BoardSetup.h"
+#include "TooManyKingsException.h"
 #include <iostream>
 #include <memory>
 #include <windows.h>
-#include "BoardSetup.h"
 
 using namespace std;
 using namespace GameModel;
@@ -48,6 +49,14 @@ ChessGame::ChessGame(const ChessGame& autre)
 	*this = autre;
 }
 
+std::string ChessGame::getErrorMessages()
+{
+	std::string errors = _errorMessages;
+	_errorMessages = ""; // Reset les messages après qu'on l'a obtenu
+
+	return errors;
+}
+
 void ChessGame::setupBoard(BoardSetup* setup)
 {
 	// Set who is playing first, who is waiting
@@ -56,16 +65,29 @@ void ChessGame::setupBoard(BoardSetup* setup)
 
 	// Get the pieces from the BoardSetup class
 	list<Piece*> pieces = setup->getPieceSet();
+	delete setup;
 
 	for (auto&& piece : pieces)
 	{
-		// Place piece on the board
-		_board[piece->_position.getRow()][piece->_position.getCol()] = piece;
+		try
+		{
+			if (piece->_color == Color::WHITE)
+				_playerWhite.addPiece(piece);
+			else
+				_playerBlack.addPiece(piece);
 
-		if (piece->_color == Color::WHITE)
-			_playerWhite.addPiece(piece);
-		else
-			_playerBlack.addPiece(piece);
+			// Place piece on the board
+			_board[piece->_position.getRow()][piece->_position.getCol()] = piece;
+		}
+		catch (TooManyKingsException e)
+		{
+			// Comme on ne peut pas afficher les erreurs ici (car nous sommes toujours dans le model)
+			// on a décidé de garder une liste d'erreurs que le UI va récupérer par la suite.
+			// Si on aurait catch dans le UI (classe ChessUI), la création du board sera coupé sec, 
+			// donc ceci est notre solution
+			delete piece;
+			_errorMessages += e.what();
+		}
 	}
 
 	// Go through each piece and calculate all of their legal moves

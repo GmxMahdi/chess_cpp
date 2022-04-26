@@ -7,6 +7,22 @@ using namespace GameModel;
 using namespace GameView;
 // When the mouse moves anywhere and anytime on the board, 
 // this function is called
+
+ChessUI::ChessUI() : QWidget() {
+	setMouseTracking(true);
+	setFixedSize(500, 500);
+
+
+	chess.setupBoard(new GameModel::BoardSetupClassic());
+
+	std::string errors = chess.getErrorMessages();
+	if (errors != "")
+		QMessageBox::warning(
+			this,
+			tr("Game Setup Error"),
+			tr(errors.c_str()));
+};
+
 void ChessUI::mouseMoveEvent(QMouseEvent* mouseEvent)
 {
 	if (mouseState == MouseState::HOVERING)

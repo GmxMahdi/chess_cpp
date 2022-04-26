@@ -140,6 +140,9 @@
     <ClInclude Include="Rook.h">
       <Filter>Header Files\Chess\Pieces</Filter>
     </ClInclude>
+    <ClInclude Include="TooManyKingsException.h">
+      <Filter>Header Files\Chess</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc">

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "King.h"
+#include "TooManyKingsException.h"
 #include <memory>
 #include <cassert>
 using namespace std;
@@ -7,7 +8,6 @@ using namespace GameModel;
 
 Player& Player::operator=(const Player& autre)
 {
-	assert(1 == 1);
 	if (this != &autre) 
 		for (auto&& piece : autre._pieces)
 		{
@@ -28,7 +28,14 @@ void Player::addPiece(Piece* piece)
 {
 	// If the piece is a king, set _king
 	if (dynamic_cast<King*>(piece) != nullptr)
+	{
+		++kingCount;
+		if (kingCount > 1)
+			throw TooManyKingsException(
+				"The "s + (this->_color == Color::WHITE ? "white" : "black") + " player attempt to hold " +
+				"more than one king. The extra king was removed.");
 		this->_king = piece;
+	}
 
 	this->_pieces.emplace_back(piece);
 }

@@ -41,6 +41,8 @@ namespace GameModel
 		State				getGameState();
 		Position			getCurrentPlayerKingPosition();
 
+		std::string			getErrorMessages();
+
 
 	private:
 		void setValidMovesOfAllPieces();
@@ -63,6 +65,8 @@ namespace GameModel
 
 		Player* _playerPlaying;
 		Player* _playerWaiting;
+
+		std::string _errorMessages = "";
 
 	public:
 		friend class BoardSetup;

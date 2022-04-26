@@ -26,6 +26,7 @@ list<Piece*> BoardSetupClassic::getPieceSet() {
 
 	// Kings
 	pieces.push_back(new King(Color::WHITE, { 7, 4 }));
+	pieces.push_back(new King(Color::WHITE, { 7, 3 }));
 	pieces.push_back(new King(Color::BLACK, { 0, 3 }));
 
 	// Bishops

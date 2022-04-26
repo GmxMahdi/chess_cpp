@@ -7,6 +7,7 @@
 #include <QPoint>
 #include <QBrush>
 #include <QLabel>
+#include <QMessageBox>
 #pragma pop()
 #include <functional>
 #include "ChessGame.h"
@@ -22,11 +23,7 @@ namespace  GameView
 	class ChessUI : public QWidget {
 		Q_OBJECT
 	public:
-		ChessUI() : QWidget() {
-			setMouseTracking(true);
-			setFixedSize(500, 500);
-			chess.setupBoard(new GameModel::BoardSetupClassic());
-		};
+		ChessUI();
 
 	public:
 		GameModel::Color getCurrentPlayerColor() { return chess.getCurrentPlayerColor(); }

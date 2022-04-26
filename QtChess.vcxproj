@@ -146,6 +146,7 @@
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rook.h" />
+    <ClInclude Include="TooManyKingsException.h" />
     <QtMoc Include="PlayerIcon.h" />
     <ClInclude Include="Position.h" />
   </ItemGroup>

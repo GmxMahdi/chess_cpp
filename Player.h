@@ -23,6 +23,7 @@ namespace GameModel
 	private:
 		friend class ChessGame;
 
+		int kingCount = 0;
 		Color								_color;
 		std::list<std::unique_ptr<Piece>>	_pieces; // _pieces.push_back()
 		Piece* _king;
