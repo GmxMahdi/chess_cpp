@@ -1,5 +1,6 @@
 #include "ChessWindow.hpp"
-
+#include "HomepageWindow.h"
+#include "SelectModeWindow.h"
 #include <QApplication>
 
 #if __has_include("bibliotheque_cours.hpp")
@@ -35,5 +36,9 @@ int main(int argc, char *argv[])
 
 	ChessWindow chessWindow;
 	chessWindow.show();
+	//HomepageWindow homepageWindow;
+	//homepageWindow.showMaximized();
+	//SelectModeWindow selectModeWindow;
+	//selectModeWindow.show();
 	return app.exec();
 }

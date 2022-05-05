@@ -54,29 +54,56 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	auto labelsLayout = new QVBoxLayout(labelsWidget);
 	labelsLayout->setAlignment(Qt::AlignTop);
 
-	auto label = new QLabel(this);
-	label->setFont(QFont("", 10));
-	label->setText("SUS???");
+	//auto label = new QLabel(this);
+	//label->setFont(QFont("", 10));
+	//label->setText("Project INF1015");
 
-	auto label2 = new QLabel(this);
-	label2->setText("SUSU WUSSY???");
-	label2->setFont(QFont("", 10));
+	//auto label2 = new QLabel(this);
+	//label2->setText("Chess Game");
+	//label2->setFont(QFont("", 10));
 
+	//Ajout du bouton recommencer la partie
+	auto restartButton = new QPushButton(this);
+	restartButton->setText("Restart Game");
+	restartButton->setFont(QFont("", 10));
+	QObject::connect(restartButton, &QPushButton::clicked, this, &ChessWindow::restartGame);
 
+	////Ajout du bouton quitter la partie
+	auto quitButton = new QPushButton(this);
+	quitButton->setText("Quit Game");
+	quitButton->setFont(QFont("", 10));
+	QObject::connect(quitButton, &QPushButton::clicked, this, &ChessWindow::quitGame);
+
+	
+	
 	layoutPrincipal->addWidget(topWidget);
 	layoutPrincipal->addWidget(horizontalWidget);
 	topLayout->addWidget(_playerLabel);
 	topLayout->addWidget(_playerIcon);
 	horizontalLayout->addWidget(_chessUI);
 	horizontalLayout->addWidget(labelsWidget);
-	labelsLayout->addWidget(label);
-	labelsLayout->addWidget(label2);
+	//labelsLayout->addWidget(label);
+	//labelsLayout->addWidget(label2);
+	labelsLayout->addWidget(restartButton);
+	labelsLayout->addWidget(quitButton);
+	//labelsLayout->addWidget(quitButton);
 
 	setCentralWidget(widgetPrincipal);
-	setWindowTitle("Sussy Wussy Chess Game (SUS)");
+	setWindowTitle("Chess Game INF1015");
 }
 
 void ChessWindow::updateChessGameInformation()
 {
 	_playerIcon->setColor(_chessUI->getCurrentPlayerColor());
+}
+
+void ChessWindow::quitGame() 
+{
+	this->close();
+}
+
+void ChessWindow::restartGame() 
+{
+	this->quitGame();
+	selectModeWindow_.open();
 }

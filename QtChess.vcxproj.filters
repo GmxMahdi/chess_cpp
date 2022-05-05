@@ -94,6 +94,15 @@
     <ClCompile Include="DisposableMove.cpp">
       <Filter>Source Files\Chess\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="HomepageWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectModeWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -103,6 +112,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="PlayerIcon.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HomepageWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SelectModeWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -148,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="DisposableMove.h">
       <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMenu.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
