@@ -13,9 +13,10 @@ ChessUI::ChessUI() : QWidget() {
 	setFixedSize(500, 500);
 
 
-	//chess.setupBoard(new GameModel::BoardSetupPawnsBehind());
+	//chess->setupBoard(new GameModel::BoardSetupPawnsBehind());
+	chess = make_unique<ChessGame>();
 
-	std::string errors = chess.getErrorMessages();
+	std::string errors = chess->getErrorMessages();
 	if (errors != "")
 		QMessageBox::warning(
 			this,
@@ -31,7 +32,7 @@ void ChessUI::mouseMoveEvent(QMouseEvent* mouseEvent)
 		Position pos = calculateCellPositionFromMouse(mouseEvent->pos());
 
 		// Get the piece the mouse is hovering on.
-		liftedPiece = chess.getPiece(pos);
+		liftedPiece = chess->getPiece(pos);
 	}
 
 	// When we will actualy lift the piece, center it on the mouse's cursor
@@ -48,12 +49,12 @@ void ChessUI::mousePressEvent(QMouseEvent* event)
 	cout << "(" << pos.getRow() << ", " << pos.getCol() << ")\n";
 
 	// Get the cell position from the mouse's coordinates
-	const Piece* piece = chess.getPiece(pos);
+	const Piece* piece = chess->getPiece(pos);
 
 	// If there is a piece in that cell
 	// and if it's the color of the player who's playing
 	if (piece != nullptr &&
-		piece->getColor() == chess.getCurrentPlayerColor())
+		piece->getColor() == chess->getCurrentPlayerColor())
 	{
 		liftedPiece = piece;
 		startingPosition = pos;
@@ -78,12 +79,12 @@ void ChessUI::mouseReleaseEvent(QMouseEvent* event)
 		endingPosition = pos;
 
 		// Attempt to move the piece
-		bool moved = chess.movePiece(startingPosition, endingPosition);
+		bool moved = chess->movePiece(startingPosition, endingPosition);
 
 		// If the move was a success
 		if (moved)
 		{
-			if (chess.getGameState() == ChessGame::State::CHECK)
+			if (chess->getGameState() == ChessGame::State::CHECK)
 				cout << "CHECK!!!\n";
 
 			cout << "ChessUI: Piece was moved\n";
@@ -153,6 +154,12 @@ void ChessUI::paintEvent(QPaintEvent* event)
 	drawGameOverCross();
 }
 
+void GameView::ChessUI::resetGame()
+{
+	chess = make_unique<ChessGame>();
+	this->repaint();
+}
+
 void ChessUI::drawBoard()
 {
 	int width = getCellWidth();
@@ -171,13 +178,13 @@ void ChessUI::drawBoard()
 
 void ChessUI::drawCellInDanger()
 {
-	if (chess.getGameState() == ChessGame::State::CHECK)
+	if (chess->getGameState() == ChessGame::State::CHECK)
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
 		painter.setBrush(Qt::red);
 
-		Position dangerPos = chess.getCurrentPlayerKingPosition();
+		Position dangerPos = chess->getCurrentPlayerKingPosition();
 		painter.drawRect(
 			dangerPos.getCol() * width,
 			dangerPos.getRow() * width,
@@ -193,7 +200,7 @@ void ChessUI::drawPieces()
 	for (int row = 0; row < 8; ++row)
 		for (int col = 0; col < 8; ++col)
 		{
-			auto piece = chess.getPiece(row, col);
+			auto piece = chess->getPiece(row, col);
 			if (piece != nullptr)
 			{
 				string fileUrl = ":/res/pieces/" + piece->getImageName();
@@ -247,7 +254,7 @@ void ChessUI::drawAvailableMoves()
 
 		for (auto&& move : moves)
 		{
-			if (chess.getPiece(move) != nullptr)
+			if (chess->getPiece(move) != nullptr)
 				painter.setBrush(Qt::red);
 			else
 				painter.setBrush(Qt::green);
@@ -267,7 +274,7 @@ void ChessUI::drawHighlighPiece()
 {
 	if (mouseState == MouseState::HOVERING &&
 		liftedPiece != nullptr &&
-		liftedPiece->getColor() ==  chess.getCurrentPlayerColor())
+		liftedPiece->getColor() ==  chess->getCurrentPlayerColor())
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
@@ -287,13 +294,13 @@ void ChessUI::drawHighlighPiece()
 
 void ChessUI::drawGameOverCross()
 {
-	if (chess.getGameState() == ChessGame::State::CHECKMATE)
+	if (chess->getGameState() == ChessGame::State::CHECKMATE)
 	{
 		int width = getCellWidth();
 		auto painter = QPainter(this);
 		painter.setBrush(Qt::red);
 
-		Position dangerPos = chess.getCurrentPlayerKingPosition();
+		Position dangerPos = chess->getCurrentPlayerKingPosition();
 		QPixmap deadImage(":/res/pieces/dead.png");
 		painter.drawPixmap(
 			dangerPos.getCol() * width,

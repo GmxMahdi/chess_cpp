@@ -30,9 +30,11 @@ namespace  GameView
 		ChessUI();
 
 	public:
-		GameModel::Color getCurrentPlayerColor() { return chess.getCurrentPlayerColor(); }
 		void paintEvent(QPaintEvent* event) override;
-		GameModel::ChessGame chess;
+
+		void resetGame();
+		GameModel::Color getCurrentPlayerColor() { return chess->getCurrentPlayerColor(); }
+		unique_ptr<GameModel::ChessGame> chess;
 	signals:
 		void gameStateChanged();
 

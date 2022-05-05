@@ -14,8 +14,6 @@ SelectModeWindow::SelectModeWindow(QWidget* parent) :
 
 	auto layout = new QHBoxLayout();
 	principalLayout->addLayout(layout);
-
-	
 	showCombobox->addItem("Select Mode");
 	showCombobox->addItem("Classic");
 	showCombobox->addItem("Random");
@@ -38,27 +36,27 @@ void SelectModeWindow::hello()
 	switch(currentIndex_)
 	{
 	case 1:
-		chessWindow_._chessUI->chess.setupBoard(new GameModel::BoardSetupClassic());
+		chessWindow_._chessUI->chess->setupBoard(new GameModel::BoardSetupClassic());
 		chessWindow_.showMaximized();
 		this->close();
 		break;
 	case 2 :
-		chessWindow_._chessUI->chess.setupBoard(new GameModel::BoardSetupRandom());
+		chessWindow_._chessUI->chess->setupBoard(new GameModel::BoardSetupRandom());
 		chessWindow_.showMaximized();
 		this->close();
 		break;
 	case 3:
-		chessWindow_._chessUI->chess.setupBoard(new GameModel::BoardSetupPawnsBehind());
+		chessWindow_._chessUI->chess->setupBoard(new GameModel::BoardSetupPawnsBehind());
 		chessWindow_.showMaximized();
 		this->close();
 		break;
 	case 4:
-		chessWindow_._chessUI->chess.setupBoard(new GameModel::BoardSetupRooksCentered());
+		chessWindow_._chessUI->chess->setupBoard(new GameModel::BoardSetupRooksCentered());
 		chessWindow_.showMaximized();
 		this->close();
 		break;
 	case 5:
-		chessWindow_._chessUI->chess.setupBoard(new GameModel::BoardSetupOn3Levels());
+		chessWindow_._chessUI->chess->setupBoard(new GameModel::BoardSetupOn3Levels());
 		chessWindow_.showMaximized();
 		this->close();
 		break;
