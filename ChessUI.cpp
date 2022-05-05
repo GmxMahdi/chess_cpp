@@ -13,7 +13,7 @@ ChessUI::ChessUI() : QWidget() {
 	setFixedSize(500, 500);
 
 
-	chess.setupBoard(new GameModel::BoardSetupPawnsBehind());
+	//chess.setupBoard(new GameModel::BoardSetupPawnsBehind());
 
 	std::string errors = chess.getErrorMessages();
 	if (errors != "")
