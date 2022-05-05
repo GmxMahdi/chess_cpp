@@ -2,7 +2,7 @@
 
 #include "PlayerIcon.h"
 #include "ChessUI.h"
-#include "SelectModeWindow.h"
+//#include "SelectModeWindow.h"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QMainWindow>
 #include <QPushButton>
@@ -17,16 +17,16 @@ class ChessWindow : public QMainWindow
 public:
 	ChessWindow(QWidget* parent = nullptr);
 	~ChessWindow() override = default;
-
-	void quitGame();
-	void restartGame();
+	GameView::ChessUI* _chessUI;
+	//void quitGame();
+	//void restartGame();
 public slots:
 	void updateChessGameInformation();
 
 private:
-	GameView::ChessUI* _chessUI;
+	
 	PlayerIcon* _playerIcon;
 	QLabel* _playerLabel;
 
-	SelectModeWindow selectModeWindow_;
+	//SelectModeWindow selectModeWindow_;
 };

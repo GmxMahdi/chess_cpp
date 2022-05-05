@@ -34,10 +34,10 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	initialiserBibliothequeCours(argc, argv);
 
-	ChessWindow chessWindow;
-	chessWindow.show();
-	//HomepageWindow homepageWindow;
-	//homepageWindow.showMaximized();
+	//ChessWindow chessWindow;
+	//chessWindow.show();
+	HomepageWindow homepageWindow;
+	homepageWindow.showMaximized();
 	//SelectModeWindow selectModeWindow;
 	//selectModeWindow.show();
 	return app.exec();

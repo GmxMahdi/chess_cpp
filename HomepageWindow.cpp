@@ -35,6 +35,6 @@ HomepageWindow::HomepageWindow(QWidget* parent) :
 
 void HomepageWindow::startGame() 
 {
-	selectModeWindow_.open();
+	selectModeWindow_.showMaximized();
 	this->hide();
 }

@@ -103,6 +103,15 @@
     <ClCompile Include="GameMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoardSetupRooksCentered.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardSetupOn3Levels.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardSetupPawnsBehind.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -166,6 +175,15 @@
     </ClInclude>
     <ClInclude Include="GameMenu.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupRooksCentered.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupOn3Levels.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupPawnsBehind.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

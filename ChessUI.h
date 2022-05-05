@@ -13,6 +13,10 @@
 #include "ChessGame.h"
 #include "Position.h"
 #include "BoardSetupClassic.h"
+#include "BoardSetupRandom.h"
+#include "BoardSetupPawnsBehind.h"
+#include "BoardSetupRooksCentered.h"
+#include "BoardSetupOn3Levels.h"
 
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
@@ -28,7 +32,7 @@ namespace  GameView
 	public:
 		GameModel::Color getCurrentPlayerColor() { return chess.getCurrentPlayerColor(); }
 		void paintEvent(QPaintEvent* event) override;
-
+		GameModel::ChessGame chess;
 	signals:
 		void gameStateChanged();
 
@@ -57,7 +61,7 @@ namespace  GameView
 		void mouseReleaseEvent(QMouseEvent* event) override;
 
 	private:
-		GameModel::ChessGame chess;
+		
 		MouseState mouseState = MouseState::HOVERING;
 
 		QPoint liftedPiecePosition{ 0,0 };

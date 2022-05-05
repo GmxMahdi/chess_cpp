@@ -62,17 +62,17 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	//label2->setText("Chess Game");
 	//label2->setFont(QFont("", 10));
 
-	//Ajout du bouton recommencer la partie
-	auto restartButton = new QPushButton(this);
-	restartButton->setText("Restart Game");
-	restartButton->setFont(QFont("", 10));
-	QObject::connect(restartButton, &QPushButton::clicked, this, &ChessWindow::restartGame);
+	////Ajout du bouton recommencer la partie
+	//auto restartButton = new QPushButton(this);
+	//restartButton->setText("Restart Game");
+	//restartButton->setFont(QFont("", 10));
+	//QObject::connect(restartButton, &QPushButton::clicked, this, &ChessWindow::restartGame);
 
-	////Ajout du bouton quitter la partie
-	auto quitButton = new QPushButton(this);
-	quitButton->setText("Quit Game");
-	quitButton->setFont(QFont("", 10));
-	QObject::connect(quitButton, &QPushButton::clicked, this, &ChessWindow::quitGame);
+	//////Ajout du bouton quitter la partie
+	//auto quitButton = new QPushButton(this);
+	//quitButton->setText("Quit Game");
+	//quitButton->setFont(QFont("", 10));
+	//QObject::connect(quitButton, &QPushButton::clicked, this, &ChessWindow::quitGame);
 
 	
 	
@@ -84,8 +84,8 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	horizontalLayout->addWidget(labelsWidget);
 	//labelsLayout->addWidget(label);
 	//labelsLayout->addWidget(label2);
-	labelsLayout->addWidget(restartButton);
-	labelsLayout->addWidget(quitButton);
+	//labelsLayout->addWidget(restartButton);
+	//labelsLayout->addWidget(quitButton);
 	//labelsLayout->addWidget(quitButton);
 
 	setCentralWidget(widgetPrincipal);
@@ -97,13 +97,13 @@ void ChessWindow::updateChessGameInformation()
 	_playerIcon->setColor(_chessUI->getCurrentPlayerColor());
 }
 
-void ChessWindow::quitGame() 
-{
-	this->close();
-}
-
-void ChessWindow::restartGame() 
-{
-	this->quitGame();
-	selectModeWindow_.open();
-}
+//void ChessWindow::quitGame() 
+//{
+//	this->close();
+//}
+//
+//void ChessWindow::restartGame() 
+//{
+//	this->quitGame();
+//	selectModeWindow_.open();
+//}

@@ -114,7 +114,10 @@
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
     <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="BoardSetupClassic.cpp" />
+    <ClCompile Include="BoardSetupOn3Levels.cpp" />
+    <ClCompile Include="BoardSetupPawnsBehind.cpp" />
     <ClCompile Include="BoardSetupRandom.cpp" />
+    <ClCompile Include="BoardSetupRooksCentered.cpp" />
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="ChessGame.cpp" />
     <ClCompile Include="DisposableMove.cpp" />
@@ -142,7 +145,10 @@
     <ClInclude Include="Bishop.h" />
     <ClInclude Include="BoardSetup.h" />
     <ClInclude Include="BoardSetupClassic.h" />
+    <ClInclude Include="BoardSetupOn3Levels.h" />
+    <ClInclude Include="BoardSetupPawnsBehind.h" />
     <ClInclude Include="BoardSetupRandom.h" />
+    <ClInclude Include="BoardSetupRooksCentered.h" />
     <ClInclude Include="ChessGame.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="DisposableMove.h" />
