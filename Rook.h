@@ -15,7 +15,7 @@ namespace GameModel
 	class Rook : public Piece
 	{
 	public:
-		//! Constructor of the rook.
+		//! Constructs a rook. Defaults to white.
 		Rook() : Piece() {}
 
 		//! Constructor of the rook.

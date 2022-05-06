@@ -20,7 +20,7 @@ namespace GameModel
 	class Piece
 	{
 	public:
-		//! Constructor of a piece.
+		//! Constructs a piece. Defaults to white.
 		Piece() : _color(Color::WHITE), _position() {}
 
 		//! Constructor of a piece.
@@ -30,7 +30,7 @@ namespace GameModel
 		*/
 		Piece(Color color, Position position) : _color(color), _position(position) {}
 
-		//! Desctructor of a piece.
+		//! Destroys piece.
 		virtual ~Piece() = default;
 
 		//! Gets an ASCII representation of a piece to be shown on console.

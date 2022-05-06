@@ -24,21 +24,32 @@ class ChessWindow : public QMainWindow
 	Q_OBJECT
 
 public:
+	//! Constructs the main UI of the chess window.
 	ChessWindow(QWidget* parent = nullptr);
+
+	//! Deconstructs the main UI of the chess window.
 	~ChessWindow() override = default;
-	GameView::ChessUI* _chessUI;
+
+	//! Closes the window.
 	void quitGame();
+
+	//! Resets the game.
 	void restartGame();
+
+	//! Start a new game.
 	void startGame();
 public slots:
+	//! Update UI components when the state of the game changed.
 	void updateChessGameInformation();
 
+public:
+	GameView::ChessUI* _chessUI; /**< Ref to the main visuals of the chessboard. */
 private:
-	QPushButton* _startBtn = new QPushButton(this);
-	QPushButton* _restartBtn = new QPushButton(this);
+	QPushButton* _startButton = new QPushButton(this);		/**< Start Button */
+	QPushButton* _restartButton = new QPushButton(this);	/**< Restart Button */
 
-	vector<function<void()>> _boardSetups;
-	QComboBox* _cbBoardSetups = new QComboBox(this);
-	PlayerIcon* _playerIcon;
-	QLabel* _playerLabel;
+	vector<function<void()>> _boardSetups;				/**< Lambda BoardSetups */
+	QComboBox* _boardSetupsComboBox = new QComboBox(this);	/**< ComboBox of board setups */
+	PlayerIcon* _playerIcon;		/**< Player icon */
+	QLabel* _playerLabel;			/**< Player label */
 };

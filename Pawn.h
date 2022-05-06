@@ -15,7 +15,7 @@ namespace GameModel
 	class Pawn : public Piece
 	{
 	public:
-		//! Constructor of the pawn.
+		//! Constructs a pawn. Defaults to white.
 		Pawn() : Piece() {}
 
 		//! Constructor of the pawn.

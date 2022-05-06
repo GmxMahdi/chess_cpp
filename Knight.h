@@ -15,7 +15,7 @@ namespace GameModel
 	class Knight : public Piece
 	{
 	public:
-		//! Constructor of the knight.
+		//! Constructs a knight. Defaults to white.
 		Knight() : Piece() {}
 
 		//! Constructor of the knight.

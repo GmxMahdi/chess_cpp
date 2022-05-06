@@ -15,7 +15,7 @@ namespace GameModel
 	class Bishop : public Piece
 	{
 	public:
-		//! Constructor of the bishop.
+		//! Constructs a bishop. Defaults to white.
 		Bishop() : Piece() {}
 
 		//! Constructor of the bishop.

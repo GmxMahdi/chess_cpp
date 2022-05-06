@@ -77,24 +77,24 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	};
 
 	/////Combobox
-	_cbBoardSetups->setFont(QFont(_cbBoardSetups->font().family(), 10));
-	_cbBoardSetups->addItem("Classic");
-	_cbBoardSetups->addItem("Random");
-	_cbBoardSetups->addItem("Queen Marathon");
-	_cbBoardSetups->addItem("Pawns Behind");
-	_cbBoardSetups->addItem("Rooks Centered");
+	_boardSetupsComboBox->setFont(QFont(_boardSetupsComboBox->font().family(), 10));
+	_boardSetupsComboBox->addItem("Classic");
+	_boardSetupsComboBox->addItem("Random");
+	_boardSetupsComboBox->addItem("Queen Marathon");
+	_boardSetupsComboBox->addItem("Pawns Behind");
+	_boardSetupsComboBox->addItem("Rooks Centered");
 
 	////Ajout du bouton start
-	_startBtn->setText("Start Game");
-	_startBtn->setFont(QFont(_startBtn->font().family(), 10));
-	QObject::connect(_startBtn, &QPushButton::clicked, this, &ChessWindow::startGame);
+	_startButton->setText("Start Game");
+	_startButton->setFont(QFont(_startButton->font().family(), 10));
+	QObject::connect(_startButton, &QPushButton::clicked, this, &ChessWindow::startGame);
 
 	////Ajout du bouton recommencer la partie
-	_restartBtn->setDisabled(true);
-	_restartBtn->setText("Restart Game");
-	_restartBtn->setFont(QFont(_restartBtn->font().family(), 10));
-	QObject::connect(_restartBtn, &QPushButton::clicked, this, &ChessWindow::restartGame);
-	_restartBtn->setDisabled(true);
+	_restartButton->setDisabled(true);
+	_restartButton->setText("Restart Game");
+	_restartButton->setFont(QFont(_restartButton->font().family(), 10));
+	QObject::connect(_restartButton, &QPushButton::clicked, this, &ChessWindow::restartGame);
+	_restartButton->setDisabled(true);
 
 	//////Ajout du bouton quitter la partie
 	auto quitButton = new QPushButton(this);
@@ -115,13 +115,13 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	horizontalLayout->addWidget(_chessUI);
 	horizontalLayout->addWidget(labelsWidget);
 	labelsLayout->addWidget(boardSetupLabel);
-	labelsLayout->addWidget(_cbBoardSetups);
+	labelsLayout->addWidget(_boardSetupsComboBox);
 
 	labelsLayout->addSpacing(0);
-	labelsLayout->addWidget(_startBtn);
+	labelsLayout->addWidget(_startButton);
 	labelsLayout->addSpacing(20);
 
-	labelsLayout->addWidget(_restartBtn);
+	labelsLayout->addWidget(_restartButton);
 	labelsLayout->addWidget(quitButton);
 	
 	setCentralWidget(widgetPrincipal);
@@ -160,11 +160,11 @@ void ChessWindow::updateChessGameInformation()
 
 void ChessWindow::startGame()
 {
-	_startBtn->setDisabled(true);
-	_cbBoardSetups->setDisabled(true);
-	_restartBtn->setDisabled(false);
+	_startButton->setDisabled(true);
+	_boardSetupsComboBox->setDisabled(true);
+	_restartButton->setDisabled(false);
 
-	_boardSetups[_cbBoardSetups->currentIndex()]();
+	_boardSetups[_boardSetupsComboBox->currentIndex()]();
 
 
 	std::string errors = _chessUI->chess->getErrorMessages();
@@ -186,9 +186,9 @@ void ChessWindow::quitGame()
 void ChessWindow::restartGame() 
 {
 	_chessUI->resetGame();
-	_startBtn->setDisabled(false);
-	_cbBoardSetups->setDisabled(false);
-	_restartBtn->setDisabled(true);
+	_startButton->setDisabled(false);
+	_boardSetupsComboBox->setDisabled(false);
+	_restartButton->setDisabled(true);
 }
 
 
