@@ -55,9 +55,6 @@
     <ClCompile Include="ChessWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestCalc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ChessUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

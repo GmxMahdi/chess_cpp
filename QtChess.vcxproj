@@ -133,7 +133,6 @@
     <ClCompile Include="PlayerIcon.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
-    <ClCompile Include="TestCalc.cpp" />
     <ClCompile Include="TestChess.cpp" />
   </ItemGroup>
   <ItemGroup>
