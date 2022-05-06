@@ -11,6 +11,7 @@
 
 namespace GameModel
 {
+	//! An enum representing the color of a piece.
 	enum class Color
 	{
 		BLACK,

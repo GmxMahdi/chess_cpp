@@ -21,6 +21,6 @@ namespace GameModel
 		/*!
 			\returns list of pieces.
 		*/
-		virtual std::list<Piece*> getPieceSet() = 0;
+		virtual std::list<Piece*> getPieceSet();
 	};
 }

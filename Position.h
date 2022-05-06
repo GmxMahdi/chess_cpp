@@ -17,17 +17,41 @@ namespace GameModel
 	class Position
 	{
 	public:
+		//! Constructs a position with default values.
 		Position() : _row(0), _col(0) {}
-		Position(int x, int y) : _row(x), _col(y) {}
+
+		//! Constructs a position with a defined row and col.
+		/*!
+			\param row
+			\param col
+		*/
+		Position(int row, int col) : _row(row), _col(col) {}
+
+		//! Constructs a position from another position
+		/*!
+			\param position position to copy
+		*/
 		Position(const Position& position) : _row(position._row), _col(position._col) {}
 
 	public:
+		//! Gets the row.
 		int getRow() const { return _row; }
+
+		//! Gets the column.
 		int getCol() const { return _col; }
-		void setRow(int pos) { _row = pos; }
-		void setCol(int pos) { _col = pos; }
+
+		//! Sets the row.
+		void setRow(int row) { _row = row; }
+
+		//! Sets the column.
+		void setCol(int col) { _col = col; }
+
+		//! Sets the row and column based on a position.
 		void set(Position position) { _row = position.getRow(); _col = position.getCol(); }
 
+		//! Overload of the == operator.
+		//! Check if two Position instances have
+		//! the same row and column attributes.
 		bool operator==(const Position& position) const
 		{
 			return (position._row == _row && position._col == _col);

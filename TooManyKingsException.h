@@ -15,6 +15,7 @@ namespace GameModel
 	class TooManyKingsException : public std::runtime_error 
 	{
 	public:
+		//! Constructs the exception with a custom message.
 		TooManyKingsException(const std::string& msg = "") :
 			runtime_error(msg){}
 	};

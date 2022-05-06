@@ -21,7 +21,7 @@ namespace GameModel
 		/*!
 			\returns list of pieces.
 		*/
-		virtual std::list<Piece*> getPieceSet() = 0;
+		virtual std::list<Piece*> getPieceSet();
 
 	private:
 		//! Generates a number of positions on the white side.

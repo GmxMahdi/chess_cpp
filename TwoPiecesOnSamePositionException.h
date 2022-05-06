@@ -16,6 +16,7 @@ namespace GameModel
 	class TwoPiecesOnSamePositionException : public std::logic_error
 	{
 	public:
+		//! Constructs the exception with a custom message.
 		TwoPiecesOnSamePositionException(const std::string& msg = "") :
 			logic_error(msg) {}
 	};
