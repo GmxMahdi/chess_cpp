@@ -25,6 +25,6 @@ public:
 	void setColor(GameModel::Color color);
 	void paintEvent(QPaintEvent* event) override;
 private:
-	static const int ICON_SIZE = 40;
+	static const int ICON_SIZE = 60;
 	GameModel::Color _color;
 };

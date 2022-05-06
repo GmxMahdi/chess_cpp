@@ -33,7 +33,7 @@ ChessWindow::ChessWindow(QWidget* parent) :
 
 	_playerLabel = new QLabel(this);
 	_playerLabel->setText("Turn to play: ");
-	_playerLabel->setFont(QFont(_playerLabel->font().family(), 15, -1));
+	_playerLabel->setFont(QFont(_playerLabel->font().family(), 13, -1));
 	_playerIcon = new PlayerIcon();
 	_playerIcon->setColor(Color::WHITE);
 

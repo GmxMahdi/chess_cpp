@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 
 	ChessWindow chessWindow;
 	chessWindow.show();
+	chessWindow.setFixedSize(chessWindow.size());
 	//HomepageWindow homepageWindow;
 	//homepageWindow.show();
 	//SelectModeWindow selectModeWindow;

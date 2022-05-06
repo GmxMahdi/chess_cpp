@@ -147,9 +147,9 @@ void ChessUI::paintEvent(QPaintEvent* event)
 {
 	drawBoard();
 	drawCellInDanger();
-	drawPieces();
-	drawHighlighPiece();
 	drawAvailableMoves();
+	drawHighlighPiece();
+	drawPieces();
 	drawHoveringPiece();
 	drawGameOverCross();
 }
@@ -162,16 +162,14 @@ void GameView::ChessUI::resetGame()
 
 void ChessUI::drawBoard()
 {
+	QBrush brushes[2] = {Qt::gray, Qt::white};
 	int width = getCellWidth();
 	auto painter = QPainter(this);
 
 	for (int row = 0; row < 8; ++row)
 		for (int col = 0; col < 8; ++col)
 		{
-			if ((row + col) % 2 == 1)
-				painter.setBrush(Qt::blue);
-			else
-				painter.setBrush(Qt::gray);
+			painter.setBrush(brushes[(row + col) % 2]);
 			painter.drawRect(row * width, col * width, width, width);
 		}
 }
@@ -250,8 +248,8 @@ void ChessUI::drawAvailableMoves()
 		auto moves = liftedPiece->getPossibleMoves();
 		auto painter = QPainter(this);
 		
-		painter.setCompositionMode(QPainter::CompositionMode::CompositionMode_Lighten);
-
+		painter.setCompositionMode(QPainter::CompositionMode::CompositionMode_SourceOver);
+		painter.setOpacity(0.50);
 		for (auto&& move : moves)
 		{
 			if (chess->getPiece(move) != nullptr)
