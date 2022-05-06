@@ -4,6 +4,8 @@
 #include "King.h"
 #include "Bishop.h"
 #include "Rook.h"
+#include "Knight.h"
+#include "Queen.h"
 #include <memory>
 #include <list>
 

@@ -90,7 +90,7 @@ std::vector<Position> GameModel::BoardSetupRandom::generateAvailablePositionsBla
 
 std::list<Piece*> GameModel::BoardSetupRandom::generateRandomBlackAndWhitePiece(Position whitePosition, Position blackPosition)
 {
-	const int PIECE_TYPE_COUNT = 3;
+	const int PIECE_TYPE_COUNT = 5;
 	int pieceIndex = rand() % PIECE_TYPE_COUNT;
 
 	switch (pieceIndex)
@@ -112,6 +112,18 @@ std::list<Piece*> GameModel::BoardSetupRandom::generateRandomBlackAndWhitePiece(
 		{
 			new Rook(Color::WHITE, whitePosition),
 			new Rook(Color::BLACK, blackPosition)
+		};
+	case 3:
+		return
+		{
+			new Knight(Color::WHITE, whitePosition),
+			new Knight(Color::BLACK, blackPosition)
+		};
+	case 4:
+		return
+		{
+			new Queen(Color::WHITE, whitePosition),
+			new Queen(Color::BLACK, blackPosition)
 		};
 	}
 	throw logic_error("Piece index was greater than avaiable type of pieces.");

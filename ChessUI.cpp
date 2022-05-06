@@ -230,11 +230,8 @@ void ChessUI::drawHidePiece()
 		int width = getCellWidth();
 		auto painter = QPainter(this);
 		Position pos = liftedPiece->getPosition();
-		if ((pos.getRow() + pos.getCol()) % 2 == 1)
-			painter.setBrush(Qt::darkBlue);
-		else
-			painter.setBrush(Qt::gray);
-
+		QBrush brushes[2] = { Qt::gray, Qt::white };
+		painter.setBrush(brushes[(pos.getRow() + pos.getCol()) % 2]);
 		painter.drawRect(pos.getCol() * width, pos.getRow() * width, width, width);
 	}
 }

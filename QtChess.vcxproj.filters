@@ -112,6 +112,12 @@
     <ClCompile Include="BoardSetupPawnsBehind.cpp">
       <Filter>Source Files\Chess\BoardSetup</Filter>
     </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Queen.cpp">
+      <Filter>Source Files\Chess\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -184,6 +190,12 @@
     </ClInclude>
     <ClInclude Include="BoardSetupPawnsBehind.h">
       <Filter>Header Files\Chess\BoardSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Queen.h">
+      <Filter>Header Files\Chess\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
