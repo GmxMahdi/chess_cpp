@@ -28,7 +28,13 @@ namespace GameModel
 	class BoardSetup
 	{
 	public:
+		//! Desctructor of the board setup.
 		virtual ~BoardSetup() = default;
+
+		//! Gives a set of pieces to be used on a board.
+		/*!
+			\returns list of pieces.
+		*/
 		virtual std::list<Piece*> getPieceSet() = 0;
 	};
 }

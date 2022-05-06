@@ -17,11 +17,34 @@ namespace GameModel
 	class BoardSetupRandom : public BoardSetup
 	{
 	public:
-		std::list<Piece*> getPieceSet() override;
+		//! Gives a set of pieces to be used on a board.
+		/*!
+			\returns list of pieces.
+		*/
+		virtual std::list<Piece*> getPieceSet() = 0;
 
 	private:
+		//! Generates a number of positions on the white side.
+		/*!
+			\param count number of positions to generate
+			\returns vector of positions.
+		*/
 		std::vector<Position> generateAvailablePositionsWhiteSide(int count);
+
+		//! Generates a number of positions on the black side.
+		/*!
+			\param count number of positions to generate
+			\returns vector of positions.
+		*/
 		std::vector<Position> generateAvailablePositionsBlackSide(int count);
+
+		//! Generates the same piece type for both black and white
+		//! and assigns their position
+		/*!
+			\param whitePosition position for the white piece
+			\param blackPosition position for the black piece
+			\returns a white piece and a black piece of the same type.
+		*/
 		std::list<Piece*> generateRandomBlackAndWhitePiece(Position whitePosition, Position blackPosition);
 	};
 }

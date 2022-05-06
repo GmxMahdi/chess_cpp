@@ -17,6 +17,10 @@ namespace GameModel
 {
 	class BoardSetupClassic : public BoardSetup
 	{
-		std::list<Piece*> getPieceSet() override;
+		//! Gives a set of pieces to be used on a board.
+		/*!
+			\returns list of pieces.
+		*/
+		virtual std::list<Piece*> getPieceSet() = 0;
 	};
 }
