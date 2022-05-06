@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : King.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Ce fichier définie les méthodes contenue dans la classe
+*					King, elle définie une image et un symbole pour la pièce
+*					et calcule les mouvements possibles pour la pièces.
+*/
+
 #include "King.h"
 #include <iostream>
 using namespace std;

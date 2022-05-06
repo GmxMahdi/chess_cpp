@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : Piece.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Cette classe est une classe abstraite qui est la base de
+*					toutes les classes qui définissent des types de pièces. 
+				    Ces classes servent à définir les déplacement des pièces.
+*/
+
 #pragma once
 #include <unordered_set>
 #include <memory>

@@ -17,7 +17,7 @@ using namespace std;
 using namespace GameModel;
 
 list<Piece*> BoardSetupQueenMarathon::getPieceSet() {
-	std::cout << "[Positions on three levels]\n";
+	std::cout << "[Queen Marathon]\n";
 	list<Piece*> pieces;
 
 	pieces.push_back(new Pawn(Color::WHITE, { 7, 0 }));

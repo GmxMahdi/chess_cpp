@@ -1,3 +1,15 @@
+/* Project : Chess Game Project INF1015
+*  File : Piece.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Ce fichier définie les méthodes contenue dans la classe
+*					Piece, elle définie méthodes get communes aux pièces,
+*					comme getColor, getPosition et getPossibleMoves ainsi
+*					que les méthodes qui détermine si la pièces est à un 
+*					adversaire et si un mouvement est possible.
+*/
+
 #include "Piece.h"
 #include <string>
 

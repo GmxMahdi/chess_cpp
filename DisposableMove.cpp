@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : DisposableMove.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe permet d'appliquer un mouvement temporaire sur
+					l'équichier. Lors de la destruction de l'instance, le
+					mouvement est défait.
+*/
+
 #include "DisposableMove.h"
 
 using namespace GameModel;

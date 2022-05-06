@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : Queen.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Ce fichier définie les méthodes contenue dans la classe
+*					Queen, elle définie une image et un symbole pour la pièce
+*					et calcule les mouvements possibles pour la pièces.
+*/
+
 #include "Queen.h"
 
 using namespace std;
