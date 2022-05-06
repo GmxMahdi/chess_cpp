@@ -1,3 +1,14 @@
+/* Project : Chess Game Project INF1015
+*  File : BoardSetupRandom.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Dans ce fichier, la classe définie la méthode getPieceSet()
+*					qui définie les positions initiales des pièces pour le mode
+					de jeux Random, les pièces vont être placées de façon 
+					aléatoire sur tout l'échéquier.
+*/
+
 #include "BoardSetupRandom.h"
 #include <iostream>
 

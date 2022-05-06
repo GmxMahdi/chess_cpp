@@ -1,3 +1,15 @@
+/* Project : Chess Game Project INF1015
+*  File : BoardSetupClassic.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Cette classe est une classe concrète qui hérite de la
+*					classe Board Setup, elle déclare la méthode getPieceSet()
+*					qui est définie dans BoardSetupClassic.cpp qui définie
+*					les positions initiales des pièces pour le mode de jeux
+*					Classic.
+*/
+
 #pragma once
 #include "BoardSetup.h"
 

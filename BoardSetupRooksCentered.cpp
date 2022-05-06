@@ -1,3 +1,15 @@
+/* Project : Chess Game Project INF1015
+*  File : BoardSetupRooksCentered.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Dans ce fichier, la classe définie la méthode getPieceSet()
+*					qui définie les positions initiales des pièces pour le mode 
+					de jeux Rooks Centered, les deux reines vont être placées
+					en diagonale une devant et une derrière au centre des deux 
+					lignes, aux extrémités de l'échéquier.
+*/
+
 #include "BoardSetupRooksCentered.h"
 #include <iostream>
 

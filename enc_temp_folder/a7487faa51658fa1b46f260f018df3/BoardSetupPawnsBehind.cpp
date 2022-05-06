@@ -1,14 +1,3 @@
-/* Project : Chess Game Project INF1015
-*  File : BoardSetupPawnsBehind.cpp
-*  Authors : Djouhri, Anissa
-			 Krayem, Mahdi Adnan
-*  Last modification : 5 May 2022
-*  Description :	Dans ce fichier, la classe définie la méthode getPieceSet()
-*					qui définie les positions initiales des pièces pour le mode
-					de jeux Pawns Behind, les pions vont être placés derrière
-					les autres pièces vont être	devant.
-*/
-
 #include "BoardSetupPawnsBehind.h"
 #include <iostream>
 

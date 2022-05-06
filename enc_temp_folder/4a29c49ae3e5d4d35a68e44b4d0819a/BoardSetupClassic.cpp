@@ -1,15 +1,3 @@
-/* Project : Chess Game Project INF1015
-*  File : BoardSetupClassic.cpp
-*  Authors : Djouhri, Anissa
-			 Krayem, Mahdi Adnan
-*  Last modification : 5 May 2022
-*  Description :	Dans ce fichier, la classe définie la méthode getPieceSet()
-*					qui définie les positions initiales des pièces pour le mode
-					de jeux Classic, les pions vont être régulièrement comme 
-					le jeux d'échec classique, les pions devant et les autres 
-					pièces derrière.
-*/
-
 #include "BoardSetupClassic.h"
 #include <iostream>
 

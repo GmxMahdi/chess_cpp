@@ -5,9 +5,8 @@
 *  Last modification : 5 May 2022
 *  Description :	Dans ce fichier, la classe définie la méthode getPieceSet()
 *					qui définie les positions initiales des pièces pour le mode
-					de jeux Queen Marathon, il y aura plusieurs reines placées 
-					sur 3 niveaux différents et protégées par des pions ainsi 
-					qu'un roi placé au premier niveau.
+					de jeux Queen Marathon, les pièces vont être placées de façon
+					aléatoire sur tout l'échéquier.
 */
 
 #include "BoardSetupQueenMarathon.h"
