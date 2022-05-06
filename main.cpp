@@ -1,5 +1,6 @@
 #include "ChessWindow.hpp"
 #include <QApplication>
+#include <iostream>
 
 #if __has_include("bibliotheque_cours.hpp")
 #include "bibliotheque_cours.hpp"

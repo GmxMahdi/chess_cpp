@@ -14,6 +14,7 @@
 #include <QWidget>
 #pragma pop()
 #include <iostream>
+#include <string>
 #include <type_traits>
 #include <cppitertools/range.hpp>
 
@@ -140,6 +141,31 @@ ChessWindow::ChessWindow(QWidget* parent) :
 void ChessWindow::updateChessGameInformation()
 {
 	_playerIcon->setColor(_chessUI->getCurrentPlayerColor());
+
+	ChessGame::State state = _chessUI->chess->getGameState();
+	Color playingPlayerColor = _chessUI->chess->getCurrentPlayerColor();
+
+	std::string playingPlayer = (playingPlayerColor == Color::BLACK ? "black" : "white");
+	std::string waitingPlayer = (playingPlayerColor == Color::BLACK ? "white" : "black");
+
+	using namespace std;
+	switch (state)
+	{
+		case ChessGame::State::CHECKMATE:
+			QMessageBox::information(
+				this,
+				tr("Checkmate!"),
+				tr(("Player "s + waitingPlayer + " wins!"s).c_str())
+			);
+		break;
+		case ChessGame::State::DRAW:
+			QMessageBox::information(
+				this,
+				tr("Draw!"),
+				tr(("Player "s + playingPlayer + " has no more moves. Nobody wins"s).c_str())
+			);
+		break;
+	}
 }
 
 void ChessWindow::startGame()

@@ -65,6 +65,7 @@ void ChessUI::mouseReleaseEvent(QMouseEvent* event)
 	// Get the cell position from the mouse's coordinates
 	Position pos = calculateCellPositionFromMouse(event->pos());
 
+	bool moved = false;
 	// If mouse was holding a piece, then he want to make a move
 	if (mouseState == MouseState::HOLDING_PIECE)
 	{
@@ -72,25 +73,26 @@ void ChessUI::mouseReleaseEvent(QMouseEvent* event)
 		endingPosition = pos;
 
 		// Attempt to move the piece
-		bool moved = chess->movePiece(startingPosition, endingPosition);
-
-		// If the move was a success
-		if (moved)
-		{
-			if (chess->getGameState() == ChessGame::State::CHECK)
-				cout << "CHECK!!!\n";
-
-			cout << "ChessUI: Piece was moved\n";
-			emit gameStateChanged(); // To make adjutement on the UI (outside of the board)
-		}
-		else
-			cout << "ChessUI: Move is illegal.\n";
+		moved = chess->movePiece(startingPosition, endingPosition);
 	}
 
 	// Go back to just hovering
 	mouseState = MouseState::HOVERING;
 
 	liftedPiece = nullptr;
+
+
+	// If the move was a success
+	if (moved)
+	{
+		if (chess->getGameState() == ChessGame::State::CHECK)
+			cout << "CHECK!!!\n";
+
+		cout << "ChessUI: Piece was moved\n";
+		emit gameStateChanged(); // To make adjutement on the UI (outside of the board)
+	}
+	else
+		cout << "ChessUI: Move is illegal.\n";
 
 	// Force repaint
 	repaint();
