@@ -1,3 +1,16 @@
+/* Project : Chess Game Project INF1015
+*  File : main.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	Ce fichier contient le main qui fait uniquement
+					afficher un objet chessWindow qui continent tous 
+					les éléments à afficher.À partir de cette affichage 
+					on peut jouer au jeu d'échec en cliquant sur les icônes
+					des pièces pour les déplacer et les cases disponibles s'illuminent.
+					La case du roi s'allume en rouge s'il est dans une situation d'échec.
+*/
+
 #include "ChessWindow.hpp"
 #include <QApplication>
 #include <iostream>
@@ -38,9 +51,6 @@ int main(int argc, char *argv[])
 	ChessWindow chessWindow;
 	chessWindow.show();
 	chessWindow.setFixedSize(chessWindow.size());
-	//HomepageWindow homepageWindow;
-	//homepageWindow.show();
-	//SelectModeWindow selectModeWindow;
-	//selectModeWindow.show();
+
 	return app.exec();
 }
