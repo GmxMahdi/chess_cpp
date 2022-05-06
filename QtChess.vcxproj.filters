@@ -94,9 +94,6 @@
     <ClCompile Include="DisposableMove.cpp">
       <Filter>Source Files\Chess\Pieces</Filter>
     </ClCompile>
-    <ClCompile Include="GameMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BoardSetupRooksCentered.cpp">
       <Filter>Source Files\Chess\BoardSetup</Filter>
     </ClCompile>
@@ -166,9 +163,6 @@
     </ClInclude>
     <ClInclude Include="DisposableMove.h">
       <Filter>Header Files\Chess\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMenu.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BoardSetupRooksCentered.h">
       <Filter>Header Files\Chess\BoardSetup</Filter>

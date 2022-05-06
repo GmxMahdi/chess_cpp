@@ -121,7 +121,6 @@
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="ChessGame.cpp" />
     <ClCompile Include="DisposableMove.cpp" />
-    <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
@@ -153,7 +152,6 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="DisposableMove.h" />
     <ClInclude Include="TwoPiecesOnSamePositionException.h" />
-    <ClInclude Include="GameMenu.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Pawn.h" />

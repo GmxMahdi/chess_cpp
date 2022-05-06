@@ -1,3 +1,14 @@
+/* Project : Chess Game Project INF1015
+*  File : ChessGame.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe permet de gérer le jeux en déterminant les
+*					déplacements valide entre les pièces, et en définissant
+*					l'état du jeux et les tours de jeux, si deux pièces essaient
+					de se placer sur la même case, un exception est levée.
+*/
+
 #include "ChessGame.h"
 #include "Pawn.h"
 #include "King.h"

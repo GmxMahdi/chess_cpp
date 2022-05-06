@@ -1,3 +1,14 @@
+/* Project : Chess Game Project INF1015
+*  File : Player.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe permet de définir les joueurs par leur
+*					couleur et leur ajouter les pièces, une exception
+					est levée si on essaie d'ajouter plus qu'un roi 
+					par joueur.
+*/
+
 #include "Player.h"
 #include "King.h"
 #include "TooManyKingsException.h"

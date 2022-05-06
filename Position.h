@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : Position.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe définie les positions dans l'échéquiers 
+*					en les divisant par lignes et colonnes.
+*					
+*/
+
 #pragma once
 #include <unordered_map>
 

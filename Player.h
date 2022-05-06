@@ -1,3 +1,12 @@
+/* Project : Chess Game Project INF1015
+*  File : Player.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe permet de définir les joueurs par leur
+*					couleur et les pièces.
+*/
+
 #pragma once
 #include "Piece.h"
 #include "Color.h"
