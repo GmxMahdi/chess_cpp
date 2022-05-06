@@ -15,6 +15,7 @@ namespace GameModel
 	class BoardSetup
 	{
 	public:
+		virtual ~BoardSetup() = default;
 		virtual std::list<Piece*> getPieceSet() = 0;
 	};
 }
