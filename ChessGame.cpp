@@ -309,12 +309,12 @@ void ChessGame::printBoard()
 	unordered_set<Position> allMoves;
 	for (auto& piece : _playerPlaying->_pieces)
 	{
-		cout << "Piece: " << piece->getSymbol() << ", Moves = " << piece->_moves.size() << "\n";
+		//cout << "Piece: " << piece->getSymbol() << ", Moves = " << piece->_moves.size() << "\n";
 		auto itr = piece->getPossibleMoves();
 		allMoves.insert(itr.begin(), itr.end());
 	}
 
-	cout << allMoves.size() << ": size\n";
+	//cout << allMoves.size() << ": size\n";
 
 	cout << "   0 1 2 3 4 5 6 7 \n";
 	for (int row = 0; row < 8; ++row)
@@ -341,4 +341,5 @@ void ChessGame::printBoard()
 		}
 		cout << "]\n";
 	}
+	cout << "\n";
 }

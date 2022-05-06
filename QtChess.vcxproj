@@ -118,6 +118,7 @@
     <ClCompile Include="BoardSetupPawnsBehind.cpp" />
     <ClCompile Include="BoardSetupRandom.cpp" />
     <ClCompile Include="BoardSetupRooksCentered.cpp" />
+    <ClCompile Include="BoardSetupTest.cpp" />
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="ChessGame.cpp" />
     <ClCompile Include="DisposableMove.cpp" />
@@ -133,6 +134,7 @@
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
     <ClCompile Include="TestCalc.cpp" />
+    <ClCompile Include="TestChess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp" />
@@ -148,6 +150,7 @@
     <ClInclude Include="BoardSetupPawnsBehind.h" />
     <ClInclude Include="BoardSetupRandom.h" />
     <ClInclude Include="BoardSetupRooksCentered.h" />
+    <ClInclude Include="BoardSetupTest.h" />
     <ClInclude Include="ChessGame.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="DisposableMove.h" />

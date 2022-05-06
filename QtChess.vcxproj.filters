@@ -109,6 +109,12 @@
     <ClCompile Include="Queen.cpp">
       <Filter>Source Files\Chess\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="TestChess.cpp">
+      <Filter>Source Files\Chess</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardSetupTest.cpp">
+      <Filter>Source Files\Chess\BoardSetup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ChessWindow.hpp">
@@ -181,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="TwoPiecesOnSamePositionException.h">
       <Filter>Header Files\Chess</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardSetupTest.h">
+      <Filter>Header Files\Chess\BoardSetup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -25,6 +25,7 @@
 #include "BoardSetupPawnsBehind.h"
 #include "BoardSetupRooksCentered.h"
 #include "BoardSetupQueenMarathon.h"
+#include "BoardSetupTest.h"
 
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
