@@ -1,3 +1,13 @@
+/* Project : Chess Game Project INF1015
+*  File : PlayerIcon.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe présente l'affichage des icônes de jeux
+*					qui ont des couleurs différentes pour les deux joueurs
+*					et de simages différentes dépendemment du type de pièces.
+*/
+
 #include "PlayerIcon.h"
 
 using namespace GameModel;

@@ -1,3 +1,14 @@
+/* Project : Chess Game Project INF1015
+*  File : ChessUI.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe représente l'affichage de l'échéquier
+					en captant les mouvements de la souris pour faire
+					bouger les pièces et colorer les cases selon les 
+					situations.
+*/
+
 #include "ChessUI.h"
 #include <iostream>
 #include <string>

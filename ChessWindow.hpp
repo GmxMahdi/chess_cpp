@@ -1,8 +1,16 @@
-﻿#pragma once
+﻿/* Project : Chess Game Project INF1015
+*  File : ChessWindow.hpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe regroupe l'affichage de l'échéquier
+					et du menu du jeux.
+*/
+
+#pragma once
 
 #include "PlayerIcon.h"
 #include "ChessUI.h"
-//#include "SelectModeWindow.h"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QMainWindow>
 #include <QPushButton>
@@ -33,6 +41,4 @@ private:
 	QComboBox* _cbBoardSetups = new QComboBox(this);
 	PlayerIcon* _playerIcon;
 	QLabel* _playerLabel;
-
-	//SelectModeWindow selectModeWindow_;
 };

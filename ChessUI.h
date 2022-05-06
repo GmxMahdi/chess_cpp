@@ -1,3 +1,11 @@
+/* Project : Chess Game Project INF1015
+*  File : ChessUI.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe représente l'affichage de l'échéquier. 
+*/
+
 #pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QWidget>

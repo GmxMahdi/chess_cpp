@@ -1,7 +1,12 @@
-#pragma once
-// Le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+/* Project : Chess Game Project INF1015
+*  File : PlayerIcon.h
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe présente l'affichage des icônes de jeux.
+*/
 
+#pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QObject>
 #include <QMessageBox>

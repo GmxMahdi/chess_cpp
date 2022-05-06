@@ -1,5 +1,16 @@
-﻿// La Vue-Controlleur pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+﻿/* Project : Chess Game Project INF1015
+*  File : ChessWindow.cpp
+*  Authors : Djouhri, Anissa
+			 Krayem, Mahdi Adnan
+*  Last modification : 5 May 2022
+*  Description :	La classe regroupe l'affichage de l'échéquier
+					et du menu du jeux en incluant un bouton start 
+					game pour débuter le jeux qui est désactivé lors
+					du jeux, un bouton restart game disponible à tout 
+					moment pour recommencer la partie et un bouton 
+					pour quitter le jeux, il y a une liste déroulante
+					aussi disponible pour choisir le mode de jeux.
+*/
 
 #include "ChessWindow.hpp"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
@@ -55,15 +66,6 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	auto labelsLayout = new QVBoxLayout(labelsWidget);
 	labelsLayout->setAlignment(Qt::AlignTop);
 
-	//auto label = new QLabel(this);
-	//label->setFont(QFont("", 10));
-	//label->setText("Project INF1015");
-
-	//auto label2 = new QLabel(this);
-	//label2->setText("Chess Game");
-	//label2->setFont(QFont("", 10));
-
-
 	//// Board Setups
 	_boardSetups = {
 		[this]() {_chessUI->chess->setupBoard(new BoardSetupClassic()); },
@@ -82,13 +84,10 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	_cbBoardSetups->addItem("Pawns Behind");
 	_cbBoardSetups->addItem("Rooks Centered");
 
-
 	////Ajout du bouton start
 	_startBtn->setText("Start Game");
 	_startBtn->setFont(QFont(_startBtn->font().family(), 10));
 	QObject::connect(_startBtn, &QPushButton::clicked, this, &ChessWindow::startGame);
-
-
 
 	////Ajout du bouton recommencer la partie
 	_restartBtn->setDisabled(true);
@@ -108,10 +107,6 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	auto boardSetupLabel = new QLabel(this);
 	boardSetupLabel->setText("Board Setup");
 	boardSetupLabel->setFont(QFont(boardSetupLabel->font().family(), 11));
-
-
-
-
 	
 	layoutPrincipal->addWidget(topWidget);
 	layoutPrincipal->addWidget(horizontalWidget);
@@ -119,8 +114,6 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	topLayout->addWidget(_playerIcon);
 	horizontalLayout->addWidget(_chessUI);
 	horizontalLayout->addWidget(labelsWidget);
-	//labelsLayout->addWidget(label);
-	//labelsLayout->addWidget(label2);
 	labelsLayout->addWidget(boardSetupLabel);
 	labelsLayout->addWidget(_cbBoardSetups);
 
@@ -131,9 +124,6 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	labelsLayout->addWidget(_restartBtn);
 	labelsLayout->addWidget(quitButton);
 	
-
-
-
 	setCentralWidget(widgetPrincipal);
 	setWindowTitle("Chess Game INF1015");
 }
@@ -199,8 +189,6 @@ void ChessWindow::restartGame()
 	_startBtn->setDisabled(false);
 	_cbBoardSetups->setDisabled(false);
 	_restartBtn->setDisabled(true);
-
-	//selectModeWindow_.open();
 }
 
 
