@@ -1,6 +1,4 @@
 #include "ChessWindow.hpp"
-#include "HomepageWindow.h"
-#include "SelectModeWindow.h"
 #include <QApplication>
 
 #if __has_include("bibliotheque_cours.hpp")
@@ -30,6 +28,8 @@ void initialiserBibliothequeCours([[maybe_unused]] int argc, [[maybe_unused]] ch
 
 int main(int argc, char *argv[])
 {
+	srand(time(NULL)); // Imporant à ne pas enlever (ou on aura plus de random)
+
 	bibliotheque_cours::VerifierFuitesAllocations verifierFuitesAllocations;
 	QApplication app(argc, argv);
 	initialiserBibliothequeCours(argc, argv);

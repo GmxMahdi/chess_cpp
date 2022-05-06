@@ -3,7 +3,7 @@
 
 namespace GameModel
 {
-	class BoardSetupOn3Levels : public BoardSetup
+	class BoardSetupQueenMarathon : public BoardSetup
 	{
 		std::list<Piece*> getPieceSet() override;
 	};

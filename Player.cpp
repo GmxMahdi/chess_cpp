@@ -32,8 +32,8 @@ void Player::addPiece(Piece* piece)
 		++kingCount;
 		if (kingCount > 1)
 			throw TooManyKingsException(
-				"The "s + (this->_color == Color::WHITE ? "white" : "black") + " player attempt to hold " +
-				"more than one king. The extra king was removed.");
+				"The "s + (this->_color == Color::WHITE ? "white" : "black") + " player attempted to hold " +
+				"more than one king. The extra king was removed. ");
 		this->_king = piece;
 	}
 

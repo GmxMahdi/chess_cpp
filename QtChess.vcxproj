@@ -114,7 +114,7 @@
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
     <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="BoardSetupClassic.cpp" />
-    <ClCompile Include="BoardSetupOn3Levels.cpp" />
+    <ClCompile Include="BoardSetupQueenMarathon.cpp" />
     <ClCompile Include="BoardSetupPawnsBehind.cpp" />
     <ClCompile Include="BoardSetupRandom.cpp" />
     <ClCompile Include="BoardSetupRooksCentered.cpp" />
@@ -123,7 +123,6 @@
     <ClCompile Include="DisposableMove.cpp" />
     <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
-    <ClCompile Include="HomepageWindow.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,7 +133,6 @@
     <ClCompile Include="PlayerIcon.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
-    <ClCompile Include="SelectModeWindow.cpp" />
     <ClCompile Include="TestCalc.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,14 +145,14 @@
     <ClInclude Include="Bishop.h" />
     <ClInclude Include="BoardSetup.h" />
     <ClInclude Include="BoardSetupClassic.h" />
-    <ClInclude Include="BoardSetupOn3Levels.h" />
+    <ClInclude Include="BoardSetupQueenMarathon.h" />
     <ClInclude Include="BoardSetupPawnsBehind.h" />
     <ClInclude Include="BoardSetupRandom.h" />
     <ClInclude Include="BoardSetupRooksCentered.h" />
     <ClInclude Include="ChessGame.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="DisposableMove.h" />
-    <QtMoc Include="HomepageWindow.h" />
+    <ClInclude Include="TwoPiecesOnSamePositionException.h" />
     <ClInclude Include="GameMenu.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Knight.h" />
@@ -163,7 +161,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Queen.h" />
     <ClInclude Include="Rook.h" />
-    <QtMoc Include="SelectModeWindow.h" />
     <ClInclude Include="TooManyKingsException.h" />
     <QtMoc Include="PlayerIcon.h" />
     <ClInclude Include="Position.h" />

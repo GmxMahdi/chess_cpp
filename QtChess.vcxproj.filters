@@ -94,19 +94,13 @@
     <ClCompile Include="DisposableMove.cpp">
       <Filter>Source Files\Chess\Pieces</Filter>
     </ClCompile>
-    <ClCompile Include="HomepageWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectModeWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BoardSetupRooksCentered.cpp">
       <Filter>Source Files\Chess\BoardSetup</Filter>
     </ClCompile>
-    <ClCompile Include="BoardSetupOn3Levels.cpp">
+    <ClCompile Include="BoardSetupQueenMarathon.cpp">
       <Filter>Source Files\Chess\BoardSetup</Filter>
     </ClCompile>
     <ClCompile Include="BoardSetupPawnsBehind.cpp">
@@ -127,12 +121,6 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="PlayerIcon.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="HomepageWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="SelectModeWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -185,7 +173,7 @@
     <ClInclude Include="BoardSetupRooksCentered.h">
       <Filter>Header Files\Chess\BoardSetup</Filter>
     </ClInclude>
-    <ClInclude Include="BoardSetupOn3Levels.h">
+    <ClInclude Include="BoardSetupQueenMarathon.h">
       <Filter>Header Files\Chess\BoardSetup</Filter>
     </ClInclude>
     <ClInclude Include="BoardSetupPawnsBehind.h">
@@ -196,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Queen.h">
       <Filter>Header Files\Chess\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoPiecesOnSamePositionException.h">
+      <Filter>Header Files\Chess</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

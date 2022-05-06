@@ -15,13 +15,6 @@ ChessUI::ChessUI() : QWidget() {
 
 	//chess->setupBoard(new GameModel::BoardSetupPawnsBehind());
 	chess = make_unique<ChessGame>();
-
-	std::string errors = chess->getErrorMessages();
-	if (errors != "")
-		QMessageBox::warning(
-			this,
-			tr("Game Setup Error"),
-			tr(errors.c_str()));
 };
 
 void ChessUI::mouseMoveEvent(QMouseEvent* mouseEvent)
@@ -162,7 +155,7 @@ void GameView::ChessUI::resetGame()
 
 void ChessUI::drawBoard()
 {
-	QBrush brushes[2] = {Qt::gray, Qt::white};
+	QBrush brushes[2] = {Qt::white, Qt::gray};
 	int width = getCellWidth();
 	auto painter = QPainter(this);
 
@@ -230,7 +223,7 @@ void ChessUI::drawHidePiece()
 		int width = getCellWidth();
 		auto painter = QPainter(this);
 		Position pos = liftedPiece->getPosition();
-		QBrush brushes[2] = { Qt::gray, Qt::white };
+		QBrush brushes[2] = { Qt::white, Qt::gray };
 		painter.setBrush(brushes[(pos.getRow() + pos.getCol()) % 2]);
 		painter.drawRect(pos.getCol() * width, pos.getRow() * width, width, width);
 	}
@@ -302,6 +295,19 @@ void ChessUI::drawGameOverCross()
 			dangerPos.getRow() * width,
 			width,
 			width,
+			deadImage);
+	}
+	if (chess->getGameState() == ChessGame::State::DRAW)
+	{
+		int width = getCellWidth();
+		auto painter = QPainter(this);
+		Position dangerPos = chess->getCurrentPlayerKingPosition();
+		QPixmap deadImage(":/res/pieces/draw.png");
+		painter.drawPixmap(
+			dangerPos.getCol() * width +1 ,
+			dangerPos.getRow() * width +1,
+			width -1,
+			width -1,
 			deadImage);
 	}
 }

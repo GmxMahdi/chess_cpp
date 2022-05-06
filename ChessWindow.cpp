@@ -67,18 +67,20 @@ ChessWindow::ChessWindow(QWidget* parent) :
 	_boardSetups = {
 		[this]() {_chessUI->chess->setupBoard(new BoardSetupClassic()); },
 		[this]() {_chessUI->chess->setupBoard(new BoardSetupRandom()); },
+		[this]() {_chessUI->chess->setupBoard(new BoardSetupQueenMarathon()); },
 		[this]() {_chessUI->chess->setupBoard(new BoardSetupPawnsBehind()); },
 		[this]() {_chessUI->chess->setupBoard(new BoardSetupRooksCentered()); },
-		[this]() {_chessUI->chess->setupBoard(new BoardSetupOn3Levels()); },
+		
 	};
 
 	/////Combobox
 	_cbBoardSetups->setFont(QFont(_cbBoardSetups->font().family(), 10));
 	_cbBoardSetups->addItem("Classic");
 	_cbBoardSetups->addItem("Random");
+	_cbBoardSetups->addItem("Queen Marathon");
 	_cbBoardSetups->addItem("Pawns Behind");
 	_cbBoardSetups->addItem("Rooks Centered");
-	_cbBoardSetups->addItem("Three Levels");
+
 
 	////Ajout du bouton start
 	_startBtn->setText("Start Game");
@@ -147,6 +149,15 @@ void ChessWindow::startGame()
 	_restartBtn->setDisabled(false);
 
 	_boardSetups[_cbBoardSetups->currentIndex()]();
+
+
+	std::string errors = _chessUI->chess->getErrorMessages();
+	if (errors != "")
+		QMessageBox::warning(
+			this,
+			tr("Game Setup Error"),
+			tr(errors.c_str()));
+
 	updateChessGameInformation();
 	_chessUI->repaint();
 }

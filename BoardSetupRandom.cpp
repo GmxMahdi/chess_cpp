@@ -5,7 +5,6 @@ using namespace std;
 using namespace GameModel;
 
 list<Piece*> BoardSetupRandom::getPieceSet() {
-	srand(time(NULL));
 	std::cout << "[Random Positions]\n";
 	list<Piece*> pieces;
 

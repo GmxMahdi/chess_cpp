@@ -16,7 +16,7 @@
 #include "BoardSetupRandom.h"
 #include "BoardSetupPawnsBehind.h"
 #include "BoardSetupRooksCentered.h"
-#include "BoardSetupOn3Levels.h"
+#include "BoardSetupQueenMarathon.h"
 
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .

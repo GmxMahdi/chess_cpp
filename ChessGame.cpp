@@ -4,6 +4,7 @@
 #include "Bishop.h"
 #include "BoardSetup.h"
 #include "TooManyKingsException.h"
+#include "TwoPiecesOnSamePositionException.h"
 #include <iostream>
 #include <memory>
 #include <windows.h>
@@ -71,16 +72,25 @@ void ChessGame::setupBoard(BoardSetup* setup)
 	{
 		try
 		{
+			// If piece is already in the spot
+			if (_board[piece->_position.getRow()][piece->_position.getCol()] != nullptr)
+				throw TwoPiecesOnSamePositionException(
+					"A second piece was attemped to be placed on the same spot of another piece at ("
+					+ std::to_string(piece->_position.getRow()) + ", "
+					+ std::to_string(piece->_position.getCol()) + "). It has been removed.");
+
 			if (piece->_color == Color::WHITE)
 				_playerWhite.addPiece(piece);
 			else
 				_playerBlack.addPiece(piece);
 
-			// Place piece on the board
 			_board[piece->_position.getRow()][piece->_position.getCol()] = piece;
 		}
-		catch (TooManyKingsException e)
+		catch (exception e)
 		{
+			// Handles TooManyKingsException
+			// Handles TwoPiecesOnTheSamePosition
+			
 			// Comme on ne peut pas afficher les erreurs ici (car nous sommes toujours dans le model)
 			// on a décidé de garder une liste d'erreurs que le UI va récupérer par la suite.
 			// Si on aurait catch dans le UI (classe ChessUI), la création du board sera coupé sec, 
