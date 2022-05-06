@@ -16,6 +16,7 @@
 using namespace std;
 using namespace GameModel;
 
+
 string Piece::getAscii() const
 {
 	if (_color == Color::WHITE) 
@@ -26,20 +27,24 @@ string Piece::getAscii() const
 		return "\033[44;97;1m"s + getSymbol() + "\033[0m"s;
 }
 
+
 Color Piece::getColor() const
 {
 	return _color;
 }
+
 
 Position Piece::getPosition() const
 {
 	return _position;
 }
 
+
 std::unordered_set<Position> Piece::getPossibleMoves() const
 {
 	return _moves;
 }
+
 
 bool Piece::hasSameColorOfOtherPiece(Piece* piece)
 {
